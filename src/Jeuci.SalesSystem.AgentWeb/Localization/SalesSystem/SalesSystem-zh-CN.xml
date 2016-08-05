@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="zh-CN">
   <texts>
-    <text name="HomePage" value="主页" />
+    <text name="HomePage" value="销售系统" />
     <text name="About" value="关于我们" />
     <text name="WellcomeMessage" value="欢迎使用 SalesSystem!" />
     <text name="Home_ThisIsATemplate" value="SalesSystem项目模板是Web应用开发的起点,它采用..." />
@@ -13,5 +13,11 @@
     <text name="AboutFormat" value="关于 {0}" />
     <text name="About_AspNetBoilerplateDescription" value="ASP.NET Boilerplate是开发新Web应用的起点,，它吸纳和提供了Web开发的一些最佳实践，以及流行的框架工具集! ASP.NET Boilerplat基础框架能支撑一系列流行的框架实践，如 &lt;strong&gt;NLayer architecture&lt;/strong&gt; and &lt;strong&gt;Domain Driven Design&lt;/strong&gt;." />
     <text name="ForMoreInformation" value="更多信息" />
+    
+    <!--NavBar-->
+    <text name="NavBar_BrandName" value="代理商销售系统" />
+    <text name="NavBar_Sidebar_Content" value="目录" />
+    <text name="NavBar_SaleSoftware" value="销售软件"/>
+    <text name="NavBar_SaleSoftwareRecord" value="销售记录"/>
   </texts>
 </localizationDictionary>

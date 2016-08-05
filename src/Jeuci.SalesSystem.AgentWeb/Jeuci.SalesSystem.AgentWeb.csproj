@@ -777,7 +777,9 @@
     <Content Include="css\main.css.map">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <Content Include="log4net.config" />
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <Content Include="fonts\FontAwesome.otf" />
@@ -1172,6 +1174,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SaleSoftwareController.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\SalesSystemControllerBase.cs" />
@@ -1187,11 +1190,13 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Shared\_TopBar.cshtml" />
+    <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Layout\_LanguageSelection.cshtml" />
-    <Content Include="Views\Layout\_TopMenu.cshtml" />
+    <Content Include="Views\Layout\_SideMenu.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
+    <Content Include="Views\SaleSoftware\Index.cshtml" />
+    <Content Include="Views\SaleSoftware\Record.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

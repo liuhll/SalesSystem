@@ -17,12 +17,14 @@
         return ApplicationPath + url;
     });
 }
+
+
 @foreach (var menuItem in Model.MainMenu.Items)
 {
-    <li class="@(Model.ActiveMenuItemName == menuItem.Name ? "active" : "")">
+    <li>
         @if (menuItem.Items.IsNullOrEmpty())
         {
-            <a href="@calculateMenuUrl(menuItem.Url)">
+            <a href="@calculateMenuUrl(menuItem.Url)" class="@(Model.ActiveMenuItemName == menuItem.Name ? "active" : "")">
                 @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
                 {
                     <i class="@menuItem.Icon"></i>
@@ -31,25 +33,26 @@
             </a>
         }
         else
-        {
-            <a href="" data-toggle="dropdown">
+        { 
+            <a href="#" class="@(Model.ActiveMenuItemName == menuItem.Name  ? "active" : "")">
                 @if (!string.IsNullOrWhiteSpace(menuItem.Icon))
                 {
                     <i class="@menuItem.Icon"></i>
                 }
                 @menuItem.DisplayName
+                <span class="fa arrow"></span>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="nav nav-second-level">
                 @foreach (var subMenuItem in menuItem.Items)
                 {
                     <li>
-                        <a href="@calculateMenuUrl(subMenuItem.Url)">
+                        <a href="@calculateMenuUrl(subMenuItem.Url)" class="@(Model.ActiveMenuItemName == menuItem.Name ? "active" : "")">
                             @if (!string.IsNullOrWhiteSpace(subMenuItem.Icon))
                             {
                                 <i class="@subMenuItem.Icon"></i>
                             }
                             @subMenuItem.DisplayName
-                        </a>
+                        </a>                       
                     </li>
                 }
             </ul>

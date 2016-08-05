@@ -18,15 +18,15 @@ namespace Jeuci.SalesSystem.Web.Controllers
         }
 
         [ChildActionOnly]
-        public PartialViewResult TopMenu(string activeMenu = "")
+        public PartialViewResult SideMenu(string activeMenu = "")
         {
             var model = new TopMenuViewModel
                         {
                             MainMenu = AsyncHelper.RunSync(() => _userNavigationManager.GetMenuAsync("MainMenu", AbpSession.UserId)),
                             ActiveMenuItemName = activeMenu
-                        };
+                        }; 
 
-            return PartialView("_TopMenu", model);
+            return PartialView("_SideMenu", model);
         }
 
         [ChildActionOnly]

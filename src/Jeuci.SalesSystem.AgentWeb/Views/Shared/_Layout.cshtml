@@ -2,7 +2,7 @@
 @using System.Web.Optimization
 @using Abp.Timing
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +12,10 @@
 
     <link rel="shortcut icon" href="~/favicon.ico">
 
-    <title>SalesSystem</title>
+    <title>君耀优彩销售代理系统</title>
 
-    @Styles.Render("~/Bundles/vendor/css")
-    @Styles.Render("~/Bundles/css")
+    @Styles.Render("~/Bundles/vendor/basecss")
+
 
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
@@ -31,29 +31,41 @@
         <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
     <![endif]-->
 
-    @Scripts.Render("~/Bundles/vendor/js/top")
-
 </head>
 <body>
-    @Html.Partial("_TopBar")
+    <div id="wrapper">
+        @Html.Partial("_SideBar")
 
-    <div class="container">
-        @RenderBody()
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+      
 
-    @Scripts.Render("~/Bundles/vendor/js/bottom")
-    @Scripts.Render("~/Bundles/js")
+        @Scripts.Render("~/Bundles/vendor/basejs")
+        @Scripts.Render("~/Bundles/abpjs")
 
-    <script>
-        abp.localization.defaultSourceName = '@LocalizationSourceName';
-        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs
-    </script>
+        <script>
+            abp.localization.defaultSourceName = '@LocalizationSourceName';
+            moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs
+        </script>
 
-    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
-    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+        <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+        <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
+        <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
 
-    <!-- View specific scripts -->
-    @RenderSection("scripts", required: false)
+        <script type="text/javascript">
+            $(function () {
+            if ($('#side-menu-content').hasClass('active')) {
+                $('#side-menu-content').removeClass('active');
+            }
+
+        });
+        </script>
+
+<!-- View specific scripts -->
+        @RenderSection("scripts", required: false)
 </body>
 </html>
