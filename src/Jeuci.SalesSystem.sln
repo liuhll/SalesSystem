@@ -18,8 +18,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.EntityFra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.WebApi", "Jeuci.SalesSystem.WebApi\Jeuci.SalesSystem.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.AgentWeb", "Jeuci.SalesSystem.Web\Jeuci.SalesSystem.AgentWeb.csproj", "{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentention", "Presentention", "{3EE41C56-811E-4577-AC93-0D884A30E328}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.AdminWeb", "Jeuci.SalesSystem.AdminWeb\Jeuci.SalesSystem.AdminWeb.csproj", "{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF}"
@@ -27,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.Entities", "Jeuci.SalesSystem.Entities\Jeuci.SalesSystem.Entities.csproj", "{C21837E3-481C-46AE-94DC-533816FBA1E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{29DB806C-B4A6-45A9-A6DE-DA771A424022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.AgentWeb", "Jeuci.SalesSystem.AgentWeb\Jeuci.SalesSystem.AgentWeb.csproj", "{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,10 +50,6 @@ Global
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.Build.0 = Release|Any CPU
-		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,13 +58,17 @@ Global
 		{C21837E3-481C-46AE-94DC-533816FBA1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C21837E3-481C-46AE-94DC-533816FBA1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C21837E3-481C-46AE-94DC-533816FBA1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724} = {3EE41C56-811E-4577-AC93-0D884A30E328}
-		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135} = {3EE41C56-811E-4577-AC93-0D884A30E328}
 		{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF} = {3EE41C56-811E-4577-AC93-0D884A30E328}
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135} = {3EE41C56-811E-4577-AC93-0D884A30E328}
 	EndGlobalSection
 EndGlobal

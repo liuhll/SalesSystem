@@ -3197,3 +3197,30 @@ DEBUG 2016-08-05 09:09:53,565 [1    ] Abp.AutoMapper.AbpAutoMapperModule       -
 DEBUG 2016-08-05 09:09:53,847 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Jeuci.SalesSystem.Users.IUserInfoAppService' with service name 'app/userInfo'.
 WARN  2016-08-05 09:10:03,876 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
 WARN  2016-08-05 09:10:03,975 [9    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+DEBUG 2016-08-05 10:01:45,378 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2016-08-05 10:01:45,395 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2016-08-05 10:01:45,400 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.Web.SalesSystemWebModule, Jeuci.SalesSystem.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.SalesSystemDataModule, Jeuci.SalesSystem.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.SalesSystemCoreModule, Jeuci.SalesSystem.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.Entities.SalesSystemEntitiesModule, Jeuci.SalesSystem.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.SalesSystemApplicationModule, Jeuci.SalesSystem.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Jeuci.SalesSystem.SalesSystemWebApiModule, Jeuci.SalesSystem.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,403 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.10.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:45,406 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2016-08-05 10:01:45,735 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: Jeuci.SalesSystem.EntityFramework.SalesSystemDbContext, Jeuci.SalesSystem.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2016-08-05 10:01:46,745 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2016-08-05 10:01:46,752 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2016-08-05 10:01:46,754 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2016-08-05 10:01:46,757 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: SalesSystem
+DEBUG 2016-08-05 10:01:46,970 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2016-08-05 10:01:46,993 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2016-08-05 10:01:46,994 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Jeuci.SalesSystem.Users.Dtos.UserInfoDto
+DEBUG 2016-08-05 10:01:47,229 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'Jeuci.SalesSystem.Users.IUserInfoAppService' with service name 'app/userInfo'.
+WARN  2016-08-05 10:01:53,634 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
+WARN  2016-08-05 10:01:53,691 [5    ] Abp.Logging.LogHelper                    - ISettingStore is not implemented, using DefaultConfigSettingStore which does not support GetAllListAsync.
