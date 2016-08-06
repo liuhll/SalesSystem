@@ -1173,6 +1173,7 @@
     <Compile Include="App_Start\SalesSystemWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SaleSoftwareController.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
@@ -1197,6 +1198,8 @@
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
     <Content Include="Views\SaleSoftware\Index.cshtml" />
     <Content Include="Views\SaleSoftware\Record.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
