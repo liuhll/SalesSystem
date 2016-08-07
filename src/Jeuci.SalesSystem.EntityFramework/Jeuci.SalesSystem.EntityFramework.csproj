@@ -110,6 +110,9 @@
       <DependentUpon>201608040150548_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\DefaultEditionCreator.cs" />
+    <Compile Include="Migrations\SeedData\InitialDbBuilder.cs" />
+    <Compile Include="Migrations\SeedData\TestDataCreator.cs" />
     <Compile Include="SalesSystemDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
