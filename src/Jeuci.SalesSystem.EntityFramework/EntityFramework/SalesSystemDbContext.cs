@@ -1,4 +1,5 @@
-﻿using Abp.EntityFramework;
+﻿using System.Data.Common;
+using Abp.EntityFramework;
 using Jeuci.SalesSystem.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -7,14 +8,16 @@ namespace Jeuci.SalesSystem.EntityFramework
 {
     public class SalesSystemDbContext : AbpDbContext
     {
-      
+
+        private const string TestConnectionString = "Data Source=project.jeuci.com;Initial Catalog=CCDB;Persist Security Info=True;User ID=greytt;Password=P#ssw0rd";
+
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
          *   pass connection string name to base classes. ABP works either way.
          */
         public SalesSystemDbContext()
-            : base("Default")
+            : base(TestConnectionString)
         {
 
         }
@@ -29,22 +32,29 @@ namespace Jeuci.SalesSystem.EntityFramework
 
         }
 
+        //This constructor is used in tests
+        public SalesSystemDbContext(DbConnection connection)
+            : base(connection, true)
+        {
+
+        }
+
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         //    base.OnModelCreating(modelBuilder);
-            
+
         //}
 
         #region Define an IDbSet for each Entity
-        
+
         //TODO: EveryEntity
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
 
-        public virtual IDbSet<UserInfo> Users { get; set; }
+        public virtual IDbSet<UserInfo> UserInfos { get; set; }
 
         #endregion
     }
