@@ -17,16 +17,16 @@ namespace Jeuci.SalesSystem.Tests
     {
         protected SalesSystemTestBase()
         {
-        //    UsingDbContext(context =>
-        //    {
-        //        new InitialDbBuilder(context).Create();
-        //        new TestDataCreator(context).Create();
-        //    });
+            UsingDbContext(context =>
+            {
+                new InitialDbBuilder(context).Create();
+                new TestDataCreator(context).Create();
+            });
         }
 
         protected override void PreInitialize()
         {
-   
+
             //Fake DbConnection using Effort!
             LocalIocManager.IocContainer.Register(
                 Component.For<DbConnection>()
@@ -37,7 +37,7 @@ namespace Jeuci.SalesSystem.Tests
             base.PreInitialize();
         }
 
-  
+
         #region UsingDbContext
 
         protected void UsingDbContext(Action<SalesSystemDbContext> action)
