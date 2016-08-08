@@ -26,6 +26,7 @@ namespace Jeuci.SalesSystem.Tests
 
         protected override void PreInitialize()
         {
+            base.PreInitialize();
 
             //Fake DbConnection using Effort!
             LocalIocManager.IocContainer.Register(
@@ -34,7 +35,6 @@ namespace Jeuci.SalesSystem.Tests
                     .LifestyleSingleton()
                 );
 
-            base.PreInitialize();
         }
 
 
