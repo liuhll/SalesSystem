@@ -1,4 +1,5 @@
-﻿using Abp.EntityFramework;
+﻿using System.Data.Common;
+using Abp.EntityFramework;
 using Jeuci.SalesSystem.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -29,22 +30,31 @@ namespace Jeuci.SalesSystem.EntityFramework
 
         }
 
+
+        //This constructor is used in tests
+        public SalesSystemDbContext(DbConnection connection)
+            : base(connection, true)
+        {
+
+        }
+
+
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         //    base.OnModelCreating(modelBuilder);
-            
+
         //}
 
         #region Define an IDbSet for each Entity
-        
+
         //TODO: EveryEntity
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
 
-        public virtual IDbSet<UserInfo> Users { get; set; }
+        public virtual IDbSet<UserInfo> UserInfos { get; set; }
 
         #endregion
     }

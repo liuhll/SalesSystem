@@ -24,9 +24,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.AdminWeb"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.Entities", "Jeuci.SalesSystem.Entities\Jeuci.SalesSystem.Entities.csproj", "{C21837E3-481C-46AE-94DC-533816FBA1E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{29DB806C-B4A6-45A9-A6DE-DA771A424022}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{29DB806C-B4A6-45A9-A6DE-DA771A424022}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.AgentWeb", "Jeuci.SalesSystem.AgentWeb\Jeuci.SalesSystem.AgentWeb.csproj", "{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeuci.SalesSystem.Tests", "Jeuci.SalesSystem.Tests\Jeuci.SalesSystem.Tests.csproj", "{AE0C2999-A132-4262-BBE8-668E380FE12D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0C2999-A132-4262-BBE8-668E380FE12D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0C2999-A132-4262-BBE8-668E380FE12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0C2999-A132-4262-BBE8-668E380FE12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0C2999-A132-4262-BBE8-668E380FE12D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,5 +76,6 @@ Global
 		{5EB52D3D-09FD-463A-B02A-8D9856BD3724} = {3EE41C56-811E-4577-AC93-0D884A30E328}
 		{FDB4881E-4DAD-4F89-A6C1-7E5007BD69AF} = {3EE41C56-811E-4577-AC93-0D884A30E328}
 		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135} = {3EE41C56-811E-4577-AC93-0D884A30E328}
+		{AE0C2999-A132-4262-BBE8-668E380FE12D} = {29DB806C-B4A6-45A9-A6DE-DA771A424022}
 	EndGlobalSection
 EndGlobal
