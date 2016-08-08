@@ -8,6 +8,8 @@ using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
 using Abp.Web.Mvc;
+using Castle.MicroKernel.Registration;
+using Jeuci.SalesSystem.Domain.Users;
 
 namespace Jeuci.SalesSystem.Web
 {
@@ -15,7 +17,10 @@ namespace Jeuci.SalesSystem.Web
         typeof(AbpWebMvcModule),
         typeof(SalesSystemDataModule), 
         typeof(SalesSystemApplicationModule), 
-        typeof(SalesSystemWebApiModule))]
+        typeof(SalesSystemWebApiModule),
+        typeof(SalesSystemCoreModule)
+       // typeof(AbpWebSignalRModule)
+        )]
     public class SalesSystemWebModule : AbpModule
     {
         public override void PreInitialize()
@@ -44,7 +49,7 @@ namespace Jeuci.SalesSystem.Web
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
-
+            IocManager.IocContainer.Register(Component.For<IUserManager>().ImplementedBy<UserManager>());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
