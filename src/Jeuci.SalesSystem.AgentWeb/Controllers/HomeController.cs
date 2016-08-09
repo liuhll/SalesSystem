@@ -1,21 +1,26 @@
 ﻿using Jeuci.SalesSystem.Users;
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
+using Abp.Web.Mvc.Authorization;
 using Jeuci.SalesSystem.Agents;
 using Jeuci.SalesSystem.Application.Dtos;
+using Jeuci.SalesSystem.Domain.Users;
 
 namespace Jeuci.SalesSystem.Web.Controllers
 {
+    [AbpMvcAuthorize]
     public class HomeController : SalesSystemControllerBase
     {
         private readonly IUserInfoAppService _userInfoAppService;
 
         private readonly IAgentInfoAppService _agentInfoAppService;
 
+
         public HomeController(IUserInfoAppService userInfoAppService,IAgentInfoAppService agentInfoAppService)
         {
             _userInfoAppService = userInfoAppService;
             _agentInfoAppService = agentInfoAppService;
+
         }
 
         public ActionResult Index()

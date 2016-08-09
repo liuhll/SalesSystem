@@ -15,7 +15,8 @@ namespace Jeuci.SalesSystem.Web
         typeof(AbpWebMvcModule),
         typeof(SalesSystemDataModule), 
         typeof(SalesSystemApplicationModule), 
-        typeof(SalesSystemWebApiModule))]
+        typeof(SalesSystemWebApiModule),
+        typeof(SalesSystemCoreModule))]
     public class SalesSystemWebModule : AbpModule
     {
         public override void PreInitialize()

@@ -14,11 +14,7 @@ namespace Jeuci.SalesSystem.Mapping
         {
             ToTable("UserInfo");
 
-            Ignore(t => t.IsAdministrator);
-
             Ignore(t => t.IsAgentor);
-
-            Ignore(t => t.AdministratorInfo);
 
             Ignore(t => t.AgentInfo);
         }
