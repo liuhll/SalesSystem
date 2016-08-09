@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Jeuci.SalesSystem.Web.Controllers
 {
-    public class SaleSoftwareController : Controller
+    public class SaleSoftwareController : SalesSystemControllerBase
     {
         // GET: SaleSoftware
         public ActionResult Index()

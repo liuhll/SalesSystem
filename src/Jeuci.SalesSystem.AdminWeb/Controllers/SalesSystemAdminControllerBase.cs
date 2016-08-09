@@ -1,16 +1,18 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using Abp.Modules;
 using Abp.UI;
 using Abp.Web.Mvc.Controllers;
 
-namespace Jeuci.SalesSystem.Web.Controllers
+
+namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
-    /// <summary>
-    /// Derive all Controllers from this class.
-    /// </summary>
-    public abstract class SalesSystemControllerBase : AbpController
+    public class SalesSystemAdminControllerBase : AbpController
     {
-        protected SalesSystemControllerBase()
+        protected SalesSystemAdminControllerBase()
         {
             LocalizationSourceName = SalesSystemConsts.LocalizationSourceName;
         }
