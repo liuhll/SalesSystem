@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\LoginResultType.cs" />
     <Compile Include="Product\BrandInfo.cs" />
     <Compile Include="Product\ServiceInfo.cs" />
     <Compile Include="Product\ServicePrice.cs" />
