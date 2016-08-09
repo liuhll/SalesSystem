@@ -3,6 +3,7 @@ using Abp.EntityFramework;
 using Jeuci.SalesSystem.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Jeuci.SalesSystem.Mapping;
 
 namespace Jeuci.SalesSystem.EntityFramework
 {
@@ -39,13 +40,16 @@ namespace Jeuci.SalesSystem.EntityFramework
         }
 
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-        //    base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
 
-        //}
+            modelBuilder.Configurations.Add(new UserInfoMap());
+            modelBuilder.Configurations.Add(new AgentInfoMap());
+
+        }
 
         #region Define an IDbSet for each Entity
 
@@ -55,6 +59,8 @@ namespace Jeuci.SalesSystem.EntityFramework
         //public virtual IDbSet<User> Users { get; set; }
 
         public virtual IDbSet<UserInfo> UserInfos { get; set; }
+
+        public virtual IDbSet<AgentInfo> AgentInfos { get; set; }
 
         #endregion
     }

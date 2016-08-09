@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jeuci.SalesSystem.Entities
+namespace Jeuci.SalesSystem.Entities.CommonInterfaces
 {
-    public class AdministratorInfo
+    public interface IsAdministrator
     {
+        bool IsAdministrator { get; }
     }
 }

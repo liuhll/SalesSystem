@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Domain.Entities;
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using Jeuci.SalesSystem.Entities;
 
-namespace Jeuci.SalesSystem.Entities
+namespace Jeuci.SalesSystem.Agents.Dtos
 {
-    public class AgentInfo: Entity
+    [AutoMap(typeof(AgentInfo))]
+    public class AgentInfoDto : EntityRequestInput
     {
-        public AgentInfo()
-        {
-            UserId = Id;
-        }
-
-        public int UserId { get; set; }
 
         public DateTime CreateTime { get; set; }
 
@@ -27,6 +24,5 @@ namespace Jeuci.SalesSystem.Entities
         public string AuthType { get; set; }
 
         public string Website { get; set; }
-
     }
 }

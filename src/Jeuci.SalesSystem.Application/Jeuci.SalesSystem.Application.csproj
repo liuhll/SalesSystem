@@ -90,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agents\AgentInfoAppService.cs" />
+    <Compile Include="Agents\Dtos\AgentInfoDto.cs" />
+    <Compile Include="Agents\IAgentInfoAppService.cs" />
     <Compile Include="Application\Dtos\DefaultPagedResultRequest.cs" />
     <Compile Include="Application\Services\CrudAppService.cs" />
     <Compile Include="Application\Services\ICrudAppService.cs" />

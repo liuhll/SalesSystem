@@ -1,12 +1,22 @@
 ﻿using Abp.Domain.Entities;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using Abp.Events.Bus;
+using Abp.Events.Bus.Entities;
+using Jeuci.SalesSystem.Entities.CommonInterfaces;
+using Jeuci.SalesSystem.Entities.EventData;
+using Jeuci.SalesSystem.Entities.Exception;
 
 namespace Jeuci.SalesSystem.Entities
 {
-    [Table("UserInfo")]
-    public class UserInfo : Entity
+
+    public class UserInfo : Entity , IsAgentor
     {
+        private bool _isAgentor = false;
+        private AgentInfo _agentInfo;
+
+        private bool m_isTriggerAssertAgentorEvent = false;
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
@@ -42,5 +52,34 @@ namespace Jeuci.SalesSystem.Entities
         /// </summary>
         public int? SID { get; set; }
 
+        /// <summary>
+        ///如果是代理商，则获取代理商信息
+        /// </summary>
+        public AgentInfo AgentInfo {
+            get
+            {
+                if (!_isAgentor)
+                {
+                    throw new SalesSysException(string.Format("Id为：{0}的用户不是代理商,无法获取相关信息", Id));
+                }
+                return _agentInfo;
+            }
+        }
+
+        public bool IsAgentor {
+            get
+            {
+                if (!m_isTriggerAssertAgentorEvent)
+                {
+                    var eventData = new UserInfoIsAgentorEventData(this);
+                    EventBus.Default.Trigger(eventData);
+                    _isAgentor = eventData.IsAgentor;
+                    _agentInfo = eventData.AgentInfo;
+                    m_isTriggerAssertAgentorEvent = true;
+
+                }    
+                return _isAgentor;
+            }
+        }
     }
 }

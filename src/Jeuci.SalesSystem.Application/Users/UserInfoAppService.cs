@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
@@ -18,6 +19,16 @@ namespace Jeuci.SalesSystem.Users
         public UserInfoAppService(IRepository<UserInfo, int> repository) 
             : base(repository)
         {
+        }
+
+        public PagedResultOutput<UserInfoDto> GetByConditon(IPagedResultRequest input)
+        {
+            var query = Repository.GetAll().Where(p=>p.Id == 1035);
+
+            return new PagedResultOutput<UserInfoDto>(
+                query.Count(),
+                query.OrderByDescending(e => e.Id).PageBy(input).MapTo<List<UserInfoDto>>()
+                );
         }
     }
 }

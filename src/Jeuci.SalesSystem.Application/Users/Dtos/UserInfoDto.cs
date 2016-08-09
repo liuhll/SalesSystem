@@ -6,13 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using Jeuci.SalesSystem.Agents.Dtos;
 
 namespace Jeuci.SalesSystem.Users.Dtos
 {
     [AutoMap(typeof(UserInfo))]
     public class UserInfoDto : EntityRequestInput
     {
+
         public string UserName { get; set; }
+
+        public bool IsAgentor { get; protected set; }
+
+        public bool IsAdministrator { get; protected set; }
+
+        public AgentInfoDto AgentInfoDto { get; internal set; }
 
         //public string Password { get; set; }
 
