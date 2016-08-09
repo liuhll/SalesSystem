@@ -11,16 +11,17 @@ using Abp.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Jeuci.SalesSystem.Domain.Users;
 
-namespace Jeuci.SalesSystem.Web
+
+namespace Jeuci.SalesSystem.AdminWeb
 {
     [DependsOn(
-        typeof(AbpWebMvcModule),
-        typeof(SalesSystemDataModule), 
-        typeof(SalesSystemApplicationModule), 
-        typeof(SalesSystemWebApiModule),
-        typeof(SalesSystemCoreModule)
-        )]
-    public class SalesSystemWebModule : AbpModule
+       typeof(AbpWebMvcModule),
+       typeof(SalesSystemDataModule),
+       typeof(SalesSystemApplicationModule),
+       typeof(SalesSystemWebApiModule),
+       typeof(SalesSystemCoreModule)
+       )]
+    public class SalesSystemAdminWebModule : AbpModule
     {
         public override void PreInitialize()
         {
@@ -28,8 +29,8 @@ namespace Jeuci.SalesSystem.Web
             //Add/remove languages for your application
             Configuration.Localization.Languages.Add(new LanguageInfo("zh-CN", "简体中文", "famfamfam-flag-cn", true));
             Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england"));
-          //   Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));         
-          //  Configuration.Localization.Languages.Add(new LanguageInfo("ja", "日本語", "famfamfam-flag-jp"));
+            //   Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));         
+            //  Configuration.Localization.Languages.Add(new LanguageInfo("ja", "日本語", "famfamfam-flag-jp"));
 
             //Add/remove localization sources here
             Configuration.Localization.Sources.Add(
@@ -42,7 +43,7 @@ namespace Jeuci.SalesSystem.Web
                 );
 
             //Configure navigation/menu
-            Configuration.Navigation.Providers.Add<SalesSystemNavigationProvider>();
+            Configuration.Navigation.Providers.Add<SalesSystemAdminNavigationProvider>();
         }
 
         public override void Initialize()

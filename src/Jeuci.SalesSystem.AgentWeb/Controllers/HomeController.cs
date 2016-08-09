@@ -1,9 +1,11 @@
 ﻿using Jeuci.SalesSystem.Users;
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 
 namespace Jeuci.SalesSystem.Web.Controllers
 {
+    [AbpAuthorize]
     public class HomeController : SalesSystemControllerBase
     {
         private readonly IUserInfoAppService _userInfoAppService;

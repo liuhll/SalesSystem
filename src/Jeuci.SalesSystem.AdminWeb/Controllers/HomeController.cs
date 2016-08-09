@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SalesSystemAdminControllerBase
     {
         public ActionResult Index()
         {

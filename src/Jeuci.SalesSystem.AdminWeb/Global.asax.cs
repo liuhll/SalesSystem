@@ -5,17 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Abp.Web;
+using Castle.Facilities.Logging;
 
 namespace Jeuci.SalesSystem.AdminWeb
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : AbpWebApplication<SalesSystemAdminWebModule>
     {
-        protected void Application_Start()
+        protected override void Application_Start(object sender, EventArgs e)
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AbpBootstrapper.IocManager.IocContainer.AddFacility<LoggingFacility>(f => f.UseLog4Net().WithConfig("log4net.config"));
+            base.Application_Start(sender, e);
         }
     }
 }
