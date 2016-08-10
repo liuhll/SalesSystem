@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jeuci.SalesSystem.Entities.CommonInterfaces
 {
-    public interface IsAgentor
+    public interface IIsAgentor
     {
         bool IsAgentor { get; }
 

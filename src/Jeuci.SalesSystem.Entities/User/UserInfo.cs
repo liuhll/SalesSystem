@@ -10,7 +10,7 @@ using Jeuci.SalesSystem.Entities.Exception;
 namespace Jeuci.SalesSystem.Entities
 {
 
-    public class UserInfo : Entity , IsAgentor
+    public class UserInfo : Entity , IIsAgentor
     {
         private bool _isAgentor = false;
         private AgentInfo _agentInfo;
