@@ -1,0 +1,25 @@
+{
+  "name": "Jeuci.SalesSystem.AgentWeb",
+  "authors": [
+    "Liuhongliang <1029765111@qq.com>"
+  ],
+  "description": "项目前端包管理",
+  "main": "",
+  "keywords": [
+    "SalesSystem"
+  ],
+  "license": "Jueci License",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Abp/Lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "3.3.7"  
+  }
+}
