@@ -1,4 +1,5 @@
-﻿using Abp.Web.Mvc.Controllers;
+﻿using Abp.UI;
+using Abp.Web.Mvc.Controllers;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
@@ -10,6 +11,14 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
         protected SalesSystemControllerBase()
         {
             LocalizationSourceName = SalesSystemConsts.LocalizationSourceName;
+        }
+
+        protected virtual void CheckModelState()
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new UserFriendlyException(L("FormIsNotValidMessage"));
+            }
         }
     }
 }

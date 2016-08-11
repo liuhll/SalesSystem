@@ -9,10 +9,10 @@ using Jeuci.SalesSystem.Entities.EventData;
 
 namespace Jeuci.SalesSystem.Events.EventHandler
 {
-    public class AssertUserInfoIsAdminEventHandler : IEventHandler<UserInfoIsAdminEventData>, ITransientDependency
+    public class AssertUserIsAdminEventHandler : IEventHandler<UserIsAdminEventData>, ITransientDependency
     {
         //todo : 判断用户是否为管理员
-        public void HandleEvent(UserInfoIsAdminEventData eventData)
+        public void HandleEvent(UserIsAdminEventData eventData)
         {
             throw new NotImplementedException();
         }

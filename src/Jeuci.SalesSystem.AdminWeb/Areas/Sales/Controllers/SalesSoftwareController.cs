@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Jeuci.SalesSystem.AdminWeb.Controllers;
 
-namespace Jeuci.SalesSystem.AdminWeb.Controllers
+namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
 {
-    public class SaleSoftwareController : Controller
+    public class SalesSoftwareController : AuthorizeControllerBase
     {
-        // GET: SaleSoftware
+        // GET: Sales/SalesSoftware
         public ActionResult Index()
         {
             return View();

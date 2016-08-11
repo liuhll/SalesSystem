@@ -16,19 +16,8 @@ namespace Jeuci.SalesSystem.Users
 {
     public class UserInfoAppService : CrudAppService<UserInfo, UserInfoDto>, IUserInfoAppService
     {
-        public UserInfoAppService(IRepository<UserInfo, int> repository) 
-            : base(repository)
+        public UserInfoAppService(IRepository<UserInfo, int> repository) : base(repository)
         {
-        }
-
-        public PagedResultOutput<UserInfoDto> GetByConditon(IPagedResultRequest input)
-        {
-            var query = Repository.GetAll().Where(p=>p.Id == 1035);
-
-            return new PagedResultOutput<UserInfoDto>(
-                query.Count(),
-                query.OrderByDescending(e => e.Id).PageBy(input).MapTo<List<UserInfoDto>>()
-                );
         }
     }
 }

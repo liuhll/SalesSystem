@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using Microsoft.AspNet.Identity;
 
 namespace Jeuci.SalesSystem.Entities
 {
-    public class AdministratorInfo : Entity, IHasCreationTime
+    public class AdministratorInfo : UserBase, IHasCreationTime
     {
         public AdministratorInfo()
         {
@@ -16,28 +17,17 @@ namespace Jeuci.SalesSystem.Entities
             State = (int)UserState.Active;
         }
 
-        public string AdminName { get; set; }
-
-        public string Password { get; set; }
+    //    public string AdminName { get; set; }
 
         public string RealName { get; set; }
 
-        public string Mobile { get; set; }
-
-        public string Email { get; set; }
-
         public bool? Sex { get; set; }
 
-        public string WeChat { get; set; }
-
         public DateTime CreationTime { get; set; }
-
-        public int State { get; set; }
 
         public string AdminRoles { get; set; }
 
         public string Brands { get; set; }
-
 
 
     }

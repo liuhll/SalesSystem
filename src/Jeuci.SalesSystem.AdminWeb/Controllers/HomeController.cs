@@ -7,9 +7,8 @@ using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Domain.Users;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
-{
-    [AbpMvcAuthorize]
-    public class HomeController : SalesSystemControllerBase
+{   
+    public class HomeController : AuthorizeControllerBase
     {
         private readonly IUserInfoAppService _userInfoAppService;
 
@@ -28,7 +27,6 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
             var test = _userInfoAppService.GetAll(new Application.Dtos.DefaultPagedResultRequest() { });
             var test2 = _userInfoAppService.Get(new IdInput() { Id = 1035 });
 
-            var test3 = _userInfoAppService.GetByConditon(new Application.Dtos.DefaultPagedResultRequest() {});
 
             var agentUsers = _agentInfoAppService.GetAll(new DefaultPagedResultRequest() {});
 

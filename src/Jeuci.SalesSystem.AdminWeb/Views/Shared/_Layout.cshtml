@@ -12,10 +12,10 @@
 
     <link rel="shortcut icon" href="~/favicon.ico">
 
-    <title>君耀优彩销售代理系统-@ViewBag.Title</title>
+    <title>@L("SalesAdminTitle")-@ViewBag.Title</title>
 
     @Styles.Render("~/Bundles/vendor/basecss")
-
+    @*@Styles.Render("~/Bundles/vendor/abpcss")*@
 
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
@@ -43,10 +43,17 @@
         </div>
     </div>
       
+    @Scripts.Render("~/Bundles/vendor/basejs")
+    @Scripts.Render("~/Bundles/layoutAbpjs")
 
-        @Scripts.Render("~/Bundles/vendor/basejs")
-        @Scripts.Render("~/Bundles/abpjs")
+    <script>
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs
+    </script>
 
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
         <script>
             abp.localization.defaultSourceName = '@LocalizationSourceName';
             moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs

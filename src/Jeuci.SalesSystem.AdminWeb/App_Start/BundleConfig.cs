@@ -22,10 +22,20 @@ namespace Jeuci.SalesSystem.AdminWeb
                 .Include(string.Format(ResourcePath, "font-awesome/css/font-awesome.min.css"), new CssRewriteUrlTransform())
                 );
 
+            //  ~/Bundles/vendor/abpcss
+            bundles.Add(
+              new StyleBundle("~/Bundles/vendor/abpcss")
+                    .Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())                  
+              );
+
             //~/Bundles/vendor/basejs
             bundles.Add(
                 new ScriptBundle("~/Bundles/vendor/basejs")
-                .Include(string.Format(ResourcePath, "jquery/dist/jquery.min.js"),
+                .Include(
+                   string.Format(ResourcePath, "jquery/dist/jquery.min.js"),
                    string.Format(ResourcePath, "bootstrap/dist/js/bootstrap.min.js"),
                    string.Format(ResourcePath, "metisMenu/dist/metisMenu.min.js"),
                    string.Format(ResourcePath, "startbootstrap-sb-admin-2/dist/js/sb-admin-2.js")
@@ -35,6 +45,36 @@ namespace Jeuci.SalesSystem.AdminWeb
             //~/Bundles/abpjs
             bundles.Add(
                 new ScriptBundle("~/Bundles/abpjs")
+                    .Include(
+                        "~/Abp/Framework/scripts/utils/ie10fix.js",
+                        "~/Scripts/modernizr-2.8.3.js",
+
+                        "~/Scripts/json2.min.js",
+
+                        "~/Scripts/jquery-2.1.4.min.js",
+                        "~/Scripts/jquery-ui-1.11.4.min.js",
+
+                        "~/Scripts/moment-with-locales.min.js",
+                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/jquery.blockUI.js",
+                        "~/Scripts/toastr.min.js",
+                        "~/Scripts/sweetalert/sweet-alert.min.js",
+                        "~/Scripts/others/spinjs/spin.js",
+                        "~/Scripts/others/spinjs/jquery.spin.js",
+
+                        "~/Abp/Framework/scripts/abp.js",
+                        "~/Abp/Framework/scripts/libs/abp.jquery.js",
+                        "~/Abp/Framework/scripts/libs/abp.toastr.js",
+                        "~/Abp/Framework/scripts/libs/abp.blockUI.js",
+                        "~/Abp/Framework/scripts/libs/abp.sweet-alert.js",
+                        "~/Abp/Framework/scripts/libs/abp.spin.js"
+                        )
+                );
+
+
+            //~/Bundles/abpjs
+            bundles.Add(
+                new ScriptBundle("~/Bundles/layoutAbpjs")
                     .Include(
                         "~/Scripts/json2.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",

@@ -25,14 +25,14 @@ namespace Jeuci.SalesSystem.AdminWeb
                            new MenuItemDefinition(
                                 "SaleSoftware",
                                 new LocalizableString("NavBar_SaleSoftware", SalesSystemConsts.LocalizationSourceName),
-                                url: "SaleSoftware/Index",
+                                url: "Sales/SalesSoftware/Index",
                                 icon: "fa fa-legal"
                                )
                         ).AddItem(
                           new MenuItemDefinition(
                                 "SaleSoftwareRecord",
                                 new LocalizableString("NavBar_SaleSoftwareRecord", SalesSystemConsts.LocalizationSourceName),
-                                url: "SaleSoftware/Record",
+                                url: "Sales/SalesSoftware/Record",
                                 icon: "fa fa-list-alt"
                             )
                         )

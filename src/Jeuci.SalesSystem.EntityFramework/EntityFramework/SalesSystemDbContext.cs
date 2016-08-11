@@ -48,7 +48,7 @@ namespace Jeuci.SalesSystem.EntityFramework
 
             modelBuilder.Configurations.Add(new UserInfoMap());
             modelBuilder.Configurations.Add(new AgentInfoMap());
-
+            modelBuilder.Configurations.Add(new AdministratorInfoMap());
         }
 
         #region Define an IDbSet for each Entity
@@ -61,6 +61,8 @@ namespace Jeuci.SalesSystem.EntityFramework
         public virtual IDbSet<UserInfo> UserInfos { get; set; }
 
         public virtual IDbSet<AgentInfo> AgentInfos { get; set; }
+
+        public virtual IDbSet<AdministratorInfo> AdministratorInfos { get; set; }
 
         #endregion
     }

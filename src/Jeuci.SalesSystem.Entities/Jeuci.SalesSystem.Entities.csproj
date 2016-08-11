@@ -46,6 +46,10 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -80,11 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonInterfaces\IsAdministrator.cs" />
-    <Compile Include="CommonInterfaces\IsAgentor.cs" />
-    <Compile Include="EventData\UserInfoIsAdminEventData.cs" />
-    <Compile Include="EventData\UserInfoIsAgentorEventData.cs" />
-    <Compile Include="Exception\SalesSysException.cs" />
+    <Compile Include="Common\Enums\LoginResultType.cs" />
+    <Compile Include="Common\Enums\UserState.cs" />
+    <Compile Include="Common\Interfaces\IsAdministrator.cs" />
+    <Compile Include="Common\Interfaces\IsAgentor.cs" />
+    <Compile Include="EventData\UserIsAdminEventData.cs" />
+    <Compile Include="EventData\UserIsAgentorEventData.cs" />
+    <Compile Include="SalesSysException.cs" />
     <Compile Include="Product\BrandInfo.cs" />
     <Compile Include="Product\ServiceInfo.cs" />
     <Compile Include="Product\ServicePrice.cs" />
@@ -94,6 +100,7 @@
     <Compile Include="Sales\UserRechargeOrderInfo.cs" />
     <Compile Include="User\AdministratorInfo.cs" />
     <Compile Include="User\AgentInfo.cs" />
+    <Compile Include="User\UserBase.cs" />
     <Compile Include="User\UserFrozenNote.cs" />
     <Compile Include="User\UserInfo.cs" />
   </ItemGroup>

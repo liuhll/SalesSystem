@@ -13,17 +13,17 @@ using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Events.EventHandler
 {
-    public class AssertUserInfoIsAgentorEventHandler : IEventHandler<UserInfoIsAgentorEventData>, ITransientDependency
+    public class AssertUserIsAgentorEventHandler : IEventHandler<UserIsAgentorEventData>, ITransientDependency
     {
         private readonly IRepository<AgentInfo> _agentInfoRepository;
         
-        public AssertUserInfoIsAgentorEventHandler(IRepository<AgentInfo> agentInfoRepository)
+        public AssertUserIsAgentorEventHandler(IRepository<AgentInfo> agentInfoRepository)
         {
             _agentInfoRepository = agentInfoRepository;
            
         }
 
-        public void HandleEvent(UserInfoIsAgentorEventData eventData)
+        public void HandleEvent(UserIsAgentorEventData eventData)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Jeuci.SalesSystem.Events.EventHandler
             {
                 eventData.IsAgentor = false;      
                 eventData.AgentInfo = null;
-                LogHelper.Logger.Debug(string.Format("Id为：{0}的用户不是代理商", eventData.Entity.Id));               
+                //LogHelper.Logger.Debug(string.Format("Id为：{0}的用户不是代理商", eventData.Entity.Id));               
             }
 
            

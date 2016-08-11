@@ -7,9 +7,9 @@ using Abp.Events.Bus.Entities;
 
 namespace Jeuci.SalesSystem.Entities.EventData
 {
-    public class UserInfoIsAgentorEventData : EntityCreatedEventData<UserInfo>
+    public class UserIsAgentorEventData : EntityCreatedEventData<UserInfo>
     {
-        public UserInfoIsAgentorEventData(UserInfo entity) : base(entity)
+        public UserIsAgentorEventData(UserInfo entity) : base(entity)
         {
         }
 

@@ -10,24 +10,14 @@ using Jeuci.SalesSystem.Entities.Exception;
 namespace Jeuci.SalesSystem.Entities
 {
 
-    public class UserInfo : Entity , IIsAgentor
+    public class UserInfo : UserBase, IIsAgentor
     {
         private bool _isAgentor = false;
         private AgentInfo _agentInfo;
 
         private bool m_isTriggerAssertAgentorEvent = false;
 
-        public string UserName { get; set; }
-
-        public string Password { get; set; }
-
         public string PayPassword { get; set; }
-
-        public string Mobile { get; set; }
-
-        public string Email { get; set; }
-
-        public string WeChat { get; set; }
 
         public string QQ { get; set; }
 
@@ -40,8 +30,6 @@ namespace Jeuci.SalesSystem.Entities
         public string SafeEmail { get; set; }
 
         public DateTime RegTime { get; set; }
-
-        public int State { get; set; }
 
         public int? AppType { get; set; }
 
@@ -71,7 +59,7 @@ namespace Jeuci.SalesSystem.Entities
             {
                 if (!m_isTriggerAssertAgentorEvent)
                 {
-                    var eventData = new UserInfoIsAgentorEventData(this);
+                    var eventData = new UserIsAgentorEventData(this);
                     EventBus.Default.Trigger(eventData);
                     _isAgentor = eventData.IsAgentor;
                     _agentInfo = eventData.AgentInfo;

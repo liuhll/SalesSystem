@@ -9,7 +9,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Models.Account
     public class LoginViewModel
     {
         [Required]
-        public string UsernameOrEmailAddress { get; set; }
+        public string Username { get; set; }
 
         [Required]
         public string Password { get; set; }

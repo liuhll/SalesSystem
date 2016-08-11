@@ -19,5 +19,16 @@
     <text name="NavBar_Sidebar_Content" value="目录" />
     <text name="NavBar_SaleSoftware" value="销售软件"/>
     <text name="NavBar_SaleSoftwareRecord" value="销售记录"/>
+
+    <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
+    
+    <!--Title-->
+    <text name="SalesAdminTitle" value="管理系统" />
+    
+    <!--TopMenu-->
+    <text name="UserProfile" value="用户信息" />
+    <text name="Settings" value="设置" />
+    <text name="Logout" value="登出" />
+    
   </texts>
 </localizationDictionary>

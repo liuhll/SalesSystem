@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Dependency;
 using Jeuci.SalesSystem.Entities;
 
-namespace Jeuci.SalesSystem.Domain.Users
+namespace Jeuci.SalesSystem.Repositories.Interface
 {
-    public interface IUserInfoManager : ITransientDependency
+    public interface IAdministratorInfoRepository : ISalesSystemRepository<AdministratorInfo>
     {
-        UserInfo TestMethod();
     }
 }

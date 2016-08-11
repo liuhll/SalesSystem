@@ -14,7 +14,7 @@ namespace Jeuci.SalesSystem.Users
 {
     public interface IUserInfoAppService : ICrudAppService<UserInfoDto>
     {
-        PagedResultOutput<UserInfoDto> GetByConditon(IPagedResultRequest input);
+       
 
     }
 }
