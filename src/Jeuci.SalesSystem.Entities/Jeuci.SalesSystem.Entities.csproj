@@ -86,10 +86,12 @@
   <ItemGroup>
     <Compile Include="Common\Enums\LoginResultType.cs" />
     <Compile Include="Common\Enums\UserState.cs" />
+    <Compile Include="Common\Helpers\IpHelper.cs" />
     <Compile Include="Common\Interfaces\IsAdministrator.cs" />
     <Compile Include="Common\Interfaces\IsAgentor.cs" />
     <Compile Include="EventData\UserIsAdminEventData.cs" />
     <Compile Include="EventData\UserIsAgentorEventData.cs" />
+    <Compile Include="Log\AdminLoginHistory.cs" />
     <Compile Include="SalesSysException.cs" />
     <Compile Include="Product\BrandInfo.cs" />
     <Compile Include="Product\ServiceInfo.cs" />
@@ -107,9 +109,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Log\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
