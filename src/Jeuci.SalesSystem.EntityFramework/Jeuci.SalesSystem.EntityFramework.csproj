@@ -107,10 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\Repositories\Impl\AdministratorInfoRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\Impl\AdminLoginHistoryRepository.cs" />
     <Compile Include="EntityFramework\Repositories\Impl\UserInfoRepository.cs" />
     <Compile Include="EntityFramework\SalesSystemDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\SalesSystemRepositoryBase.cs" />
     <Compile Include="Mapping\UserMapping\AdministratorInfoMap.cs" />
+    <Compile Include="Mapping\UserMapping\AdminLoginHistoryMap.cs" />
     <Compile Include="Mapping\UserMapping\AgentInfoMap.cs" />
     <Compile Include="Mapping\UserMapping\UserInfoMap.cs" />
     <Compile Include="Migrations\201608040150548_InitialCreate.cs" />

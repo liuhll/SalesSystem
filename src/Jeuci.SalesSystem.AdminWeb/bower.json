@@ -1,5 +1,5 @@
 {
-  "name": "Jeuci.SalesSystem.AgentWeb",
+  "name": "Jeuci-SalesSystem-AgentWeb",
   "authors": [
     "Liuhongliang <1029765111@qq.com>"
   ],
@@ -20,6 +20,6 @@
     "tests"
   ],
   "dependencies": {
-    "startbootstrap-sb-admin-2": "3.3.7"  
+    "startbootstrap-sb-admin-2": "git@github.com:BlackrockDigital/startbootstrap-sb-admin-2.git#3.3.7"
   }
 }

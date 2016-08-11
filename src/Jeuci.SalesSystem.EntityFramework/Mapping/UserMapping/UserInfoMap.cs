@@ -17,6 +17,7 @@ namespace Jeuci.SalesSystem.Mapping
             Ignore(t => t.IsAgentor);
 
             Ignore(t => t.AgentInfo);
+          
         }
     }
 }

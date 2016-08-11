@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
+using Abp.Events.Bus;
 using Jeuci.SalesSystem.Domain.Users.UserStore;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Microsoft.AspNet.Identity;
 using Abp.Extensions;
+using Jeuci.SalesSystem.Entities.EventData;
 using Jeuci.SalesSystem.Helper;
 
 namespace Jeuci.SalesSystem.Domain.Users
@@ -53,11 +55,18 @@ namespace Jeuci.SalesSystem.Domain.Users
             // :todo 第三方登录 ，估计不需要 
             var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(userName, plainPassword);
 
+
             var user = await _userRepository.FirstOrDefaultAsync(p => p.UserName == userName);
             if (user == null)
             {
                 return new LoginResult(LoginResultType.InvalidUserName);
             }
+
+            EventBus.Default.Trigger(new AdminLoginsEventData(new AdminLoginHistory()
+            {
+                Ip = "127.0.0.1",
+                AdminID = user.Id
+            }));
 
             if (!user.IsActive)
             {
