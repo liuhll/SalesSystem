@@ -72,15 +72,21 @@ namespace Jeuci.SalesSystem.AdminWeb
                 );
 
 
-            //~/Bundles/abpjs
+            //~/Bundles/layoutAbpjs
             bundles.Add(
                 new ScriptBundle("~/Bundles/layoutAbpjs")
                     .Include(
                         "~/Scripts/json2.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
+
                         "~/Scripts/moment-with-locales.min.js",
+                        "~/Scripts/jquery.validate.min.js",
+                        "~/Scripts/jquery.blockUI.js",
                         "~/Scripts/toastr.min.js",
                         "~/Scripts/sweetalert/sweet-alert.min.js",
+                        "~/Scripts/others/spinjs/spin.js",
+                        "~/Scripts/others/spinjs/jquery.spin.js",
+
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",
                         "~/Abp/Framework/scripts/libs/abp.toastr.js",

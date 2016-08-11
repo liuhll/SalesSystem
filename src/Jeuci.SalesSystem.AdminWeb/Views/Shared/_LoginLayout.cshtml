@@ -43,12 +43,17 @@
     @Scripts.Render("~/Bundles/vendor/basejs")
     @Scripts.Render("~/Bundles/abpjs")
 
-    <script>
+@*<script>
         abp.localization.defaultSourceName = '@LocalizationSourceName';
         moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs
+    </script>*@
+
+    <script>
+        //Localizing momentjs
+        moment.locale('@Thread.CurrentThread.CurrentUICulture.Name');
     </script>
 
-    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+<!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
     <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
 

@@ -11,6 +11,7 @@ using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Microsoft.AspNet.Identity;
 using Abp.Extensions;
+using Jeuci.SalesSystem.Helper;
 
 namespace Jeuci.SalesSystem.Domain.Users
 {
@@ -49,18 +50,23 @@ namespace Jeuci.SalesSystem.Domain.Users
                 throw new ArgumentNullException("plainPassword");
             }
 
+            // :todo 第三方登录 ，估计不需要 
             var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(userName, plainPassword);
 
-            var user = await _userRepository.SingleAsync(p => p.UserName == userName);
+            var user = await _userRepository.FirstOrDefaultAsync(p => p.UserName == userName);
             if (user == null)
             {
                 return new LoginResult(LoginResultType.InvalidUserName);
             }
 
+            if (!user.IsActive)
+            {
+                return new LoginResult(LoginResultType.UserIsNotActive);
+            }
             if (!loggedInFromExternalSource)
             {
 
-                if (!user.Password.Equals(plainPassword))
+                if (!Hash256Helper.GetUserSignByHash256(userName, user.Password).Equals(plainPassword))
                 {
                     return new LoginResult(LoginResultType.InvalidPassword, user);
                 }

@@ -6,7 +6,7 @@ using Jeuci.SalesSystem.AdminWeb.Models.Layout;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
-    public class LayoutController : SalesSystemControllerBase
+    public class LayoutController : AuthorizeControllerBase
     {
         private readonly IUserNavigationManager _userNavigationManager;
         private readonly ILocalizationManager _localizationManager;

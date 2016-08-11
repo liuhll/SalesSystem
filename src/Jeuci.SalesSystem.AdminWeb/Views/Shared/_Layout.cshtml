@@ -15,7 +15,6 @@
     <title>@L("SalesAdminTitle")-@ViewBag.Title</title>
 
     @Styles.Render("~/Bundles/vendor/basecss")
-    @*@Styles.Render("~/Bundles/vendor/abpcss")*@
 
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
@@ -54,6 +53,7 @@
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
     <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
         <script>
             abp.localization.defaultSourceName = '@LocalizationSourceName';
             moment.locale('@Thread.CurrentThread.CurrentUICulture.Name'); //Localizing momentjs

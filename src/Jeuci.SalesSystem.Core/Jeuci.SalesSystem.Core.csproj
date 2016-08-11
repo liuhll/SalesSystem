@@ -97,6 +97,7 @@
     <Compile Include="Domain\Users\UserStore\impl\AdministratorUserStore.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAdminEventHandler.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAgentorEventHandler.cs" />
+    <Compile Include="Helper\Hash256Helper.cs" />
     <Compile Include="Repositories\Interface\IAdministratorInfoRepository.cs" />
     <Compile Include="Repositories\Interface\IUserInfoRepository.cs" />
     <Compile Include="Repositories\ISalesSystemRepositoryBase.cs" />

@@ -2,7 +2,7 @@
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
-    public class AboutController : SalesSystemControllerBase
+    public class AboutController : AuthorizeControllerBase
     {
         public ActionResult Index()
         {

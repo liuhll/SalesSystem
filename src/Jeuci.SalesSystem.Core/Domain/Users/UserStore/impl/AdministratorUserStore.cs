@@ -8,6 +8,7 @@ using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Domain.Users.UserStore.impl
 {
+    // :TODO 实现管理员的增删改查
     public class AdministratorUserStore : IAdministratorUserStore
     {
 
@@ -43,9 +44,9 @@ namespace Jeuci.SalesSystem.Domain.Users.UserStore.impl
             return _administratorInfoRepository.FirstOrDefaultAsync(p => p.UserName == userName);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-
+            //No need to dispose since using IOC.
         }
     }
 }
