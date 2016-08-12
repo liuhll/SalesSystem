@@ -42,6 +42,18 @@ namespace Jeuci.SalesSystem.Migrations.SeedData
                 Email = "1029762111=@qq.com",
 
             });
+            _context.AdministratorInfos.AddOrUpdate(new AdministratorInfo()
+            {
+                Id = 1,
+                UserName = "Admin",
+                Password = "E0BC60C82713F64EF8A57C0C40D02CE24FD0141D5CC3086259C19B1E62A62BEA",
+                RealName = "张三",
+                Brands = "1,2,3",
+                Mobile = "18998765112",
+                State = 1,
+                AdminRoles = "1,2",
+
+            });
             _context.SaveChanges();
         }
     }

@@ -85,6 +85,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -147,6 +151,7 @@
     <Compile Include="SalesSystemTestsBase.cs" />
     <Compile Include="SalesSystemTestsModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Administrator_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -157,6 +162,10 @@
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>Jeuci.SalesSystem.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jeuci.SalesSystem.Core\Jeuci.SalesSystem.Core.csproj">
+      <Project>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</Project>
+      <Name>Jeuci.SalesSystem.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Jeuci.SalesSystem.Entities\Jeuci.SalesSystem.Entities.csproj">
       <Project>{c21837e3-481c-46ae-94dc-533816fba1e6}</Project>
       <Name>Jeuci.SalesSystem.Entities</Name>
@@ -165,6 +174,9 @@
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>Jeuci.SalesSystem.EntityFramework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
