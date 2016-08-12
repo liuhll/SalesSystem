@@ -19,7 +19,7 @@ namespace Jeuci.SalesSystem.AdminWeb
                 .Include(string.Format(ResourcePath, "bootstrap/dist/css/bootstrap.min.css"), new CssRewriteUrlTransform())
                 .Include(string.Format(ResourcePath, "metisMenu/dist/metisMenu.min.css"), new CssRewriteUrlTransform())
                 .Include(string.Format(ResourcePath, "startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"), new CssRewriteUrlTransform())
-                .Include(string.Format(ResourcePath, "font-awesome/css/font-awesome.min.css"), new CssRewriteUrlTransform())
+                .Include(string.Format(ResourcePath, "font-awesome/css/font-awesome.css"), new CssRewriteUrlTransform())
                 );
 
             //  ~/Bundles/vendor/abpcss

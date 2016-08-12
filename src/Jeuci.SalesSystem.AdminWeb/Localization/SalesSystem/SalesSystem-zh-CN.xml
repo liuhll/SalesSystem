@@ -20,6 +20,8 @@
     <text name="NavBar_SaleSoftware" value="销售软件"/>
     <text name="NavBar_SaleSoftwareRecord" value="销售记录"/>
     <text name="NavBar_BrandAdminName" value="彩票销售管理系统"/>
+    <text name="NavBar_Product" value="产品管理"/>
+    <text name="NavBar_Brand" value="软件与服务"/>
     
     <text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
     
