@@ -88,6 +88,8 @@
   <ItemGroup>
     <Compile Include="Configuration\IUserManagementConfig .cs" />
     <Compile Include="Configuration\UserManagementConfig.cs" />
+    <Compile Include="Domain\Sales\Impl\BrandInfoManager.cs" />
+    <Compile Include="Domain\Sales\IBrandInfoManager.cs" />
     <Compile Include="Domain\Users\Administrators\AdministratorManager.cs" />
     <Compile Include="Domain\Users\Administrators\IAdministratorManager.cs" />
     <Compile Include="Domain\Users\IUserManagerBase.cs" />
@@ -96,12 +98,19 @@
     <Compile Include="Domain\Users\UserStore\IJueciUserStoreBase.cs" />
     <Compile Include="Domain\Users\UserStore\impl\AdministratorUserStore.cs" />
     <Compile Include="Events\EventData\AdminLoginsEventData.cs" />
+    <Compile Include="Events\EventData\CurrentUserEventData.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAdminEventHandler.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAgentorEventHandler.cs" />
+    <Compile Include="Events\EventHandler\BrandServiceInfoMapEventHandler.cs" />
+    <Compile Include="Events\EventHandler\CurrentUserEventHandler.cs" />
     <Compile Include="Events\EventHandler\RecordAdminLoginsEventHandler.cs" />
+    <Compile Include="Events\EventHandler\ServiceInfoServicePriceMapEventHandler.cs" />
     <Compile Include="Helper\Hash256Helper.cs" />
     <Compile Include="Repositories\Interface\IAdministratorInfoRepository.cs" />
     <Compile Include="Repositories\Interface\IAdminLoginHistoryRepository.cs" />
+    <Compile Include="Repositories\Interface\IBrandInfoRepository.cs" />
+    <Compile Include="Repositories\Interface\IServiceInfoRepository.cs" />
+    <Compile Include="Repositories\Interface\IServicePriceRepository.cs" />
     <Compile Include="Repositories\Interface\IUserInfoRepository.cs" />
     <Compile Include="Repositories\ISalesSystemRepositoryBase.cs" />
     <Compile Include="SalesSystemConsts.cs" />

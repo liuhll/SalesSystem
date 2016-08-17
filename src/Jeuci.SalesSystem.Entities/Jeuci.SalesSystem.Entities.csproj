@@ -84,11 +84,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Enums\AuthType.cs" />
     <Compile Include="Common\Enums\LoginResultType.cs" />
+    <Compile Include="Common\Enums\State.cs" />
     <Compile Include="Common\Enums\UserState.cs" />
     <Compile Include="Common\Helpers\IpHelper.cs" />
     <Compile Include="Common\Interfaces\IsAdministrator.cs" />
     <Compile Include="Common\Interfaces\IsAgentor.cs" />
+    <Compile Include="EventData\BrandServiceInfoMapEventData.cs" />
+    <Compile Include="EventData\ServiceInfoServicePriceMapEventData.cs" />
     <Compile Include="EventData\UserIsAdminEventData.cs" />
     <Compile Include="EventData\UserIsAgentorEventData.cs" />
     <Compile Include="Log\AdminLoginHistory.cs" />

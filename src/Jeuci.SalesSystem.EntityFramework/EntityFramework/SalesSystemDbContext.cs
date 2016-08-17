@@ -50,6 +50,9 @@ namespace Jeuci.SalesSystem.EntityFramework
             modelBuilder.Configurations.Add(new AgentInfoMap());
             modelBuilder.Configurations.Add(new AdministratorInfoMap());
             modelBuilder.Configurations.Add(new AdminLoginHistoryMap());
+            modelBuilder.Configurations.Add(new BrandInfoMap());
+            modelBuilder.Configurations.Add(new ServiceInfoMap());
+            modelBuilder.Configurations.Add(new ServicePriceMap());
 
         }
 
@@ -65,6 +68,12 @@ namespace Jeuci.SalesSystem.EntityFramework
         public virtual IDbSet<AgentInfo> AgentInfos { get; set; }
 
         public virtual IDbSet<AdministratorInfo> AdministratorInfos { get; set; }
+
+        public virtual IDbSet<BrandInfo> BrandInfos { get; set; }
+
+        public virtual IDbSet<ServiceInfo> ServiceInfos { get; set; }
+
+        public virtual IDbSet<ServicePrice> ServicePrices { get; set; }
 
         #endregion
     }

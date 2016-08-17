@@ -74,6 +74,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
+            Session.RemoveAll();
             return RedirectToAction("Login");
         }
 
@@ -83,6 +84,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
             {
                 returnUrl = Request.ApplicationPath;
             }
+            Session.Add(SalesSystemConsts.CurrentUserSessionName, loginResult.User);
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = loginModel.RememberMe }, loginResult.Identity);
             return Json(new MvcAjaxResponse { TargetUrl = returnUrl });

@@ -1,5 +1,6 @@
 ﻿using Abp.UI;
 using Abp.Web.Mvc.Controllers;
+using Jeuci.SalesSystem.Entities;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {
@@ -8,6 +9,8 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
     /// </summary>
     public abstract class SalesSystemControllerBase : AbpController
     {
+     
+
         protected SalesSystemControllerBase()
         {
             LocalizationSourceName = SalesSystemConsts.LocalizationSourceName;

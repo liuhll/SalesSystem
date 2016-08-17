@@ -71,6 +71,11 @@ namespace Jeuci.SalesSystem.AdminWeb
                         )
                 );
 
+            // ~/Bundles/pluginJs
+            //bundles.Add(new ScriptBundle("~/Bundles/pluginJs")
+            //    .Include(
+            //        string.Format(ResourcePath, "jquery.serializeJSON/jquery.serializejson.min.js")
+            //    ));
 
             //~/Bundles/layoutAbpjs
             bundles.Add(

@@ -39,11 +39,18 @@
             <div class="container-fluid">
                 @RenderBody()
             </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div id="modal-dialog" class="modal-dialog">
+                 
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
         </div>
     </div>
       
     @Scripts.Render("~/Bundles/vendor/basejs")
     @Scripts.Render("~/Bundles/layoutAbpjs")
+    
 
     <script>
         abp.localization.defaultSourceName = '@LocalizationSourceName';
