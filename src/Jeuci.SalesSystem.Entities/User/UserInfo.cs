@@ -1,11 +1,7 @@
-﻿using Abp.Domain.Entities;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 using Abp.Events.Bus;
-using Abp.Events.Bus.Entities;
-using Jeuci.SalesSystem.Entities.CommonInterfaces;
+using Jeuci.SalesSystem.Entities.Common.Interfaces;
 using Jeuci.SalesSystem.Entities.EventData;
-using Jeuci.SalesSystem.Entities.Exception;
 
 namespace Jeuci.SalesSystem.Entities
 {

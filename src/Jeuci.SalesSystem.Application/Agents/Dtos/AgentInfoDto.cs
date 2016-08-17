@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 
 namespace Jeuci.SalesSystem.Agents.Dtos
 {

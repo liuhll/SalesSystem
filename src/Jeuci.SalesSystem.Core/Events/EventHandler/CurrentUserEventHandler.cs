@@ -7,6 +7,7 @@ using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Events.Bus.Handlers;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Events.EventData;
 
 namespace Jeuci.SalesSystem.Events.EventHandler

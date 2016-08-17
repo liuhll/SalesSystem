@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
 using Abp.Web.Mvc.Authorization;
+using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
 using Jeuci.SalesSystem.Agents;
 using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Domain.Users;

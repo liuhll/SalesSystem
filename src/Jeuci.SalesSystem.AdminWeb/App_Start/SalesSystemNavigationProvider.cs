@@ -1,6 +1,7 @@
 ﻿using System.Security.Policy;
 using Abp.Application.Navigation;
 using Abp.Localization;
+using Jeuci.SalesSystem.AdminWeb.MenuConfigs;
 
 namespace Jeuci.SalesSystem.AdminWeb
 {

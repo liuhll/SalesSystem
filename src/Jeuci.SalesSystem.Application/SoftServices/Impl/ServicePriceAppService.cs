@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Repositories;
+﻿using Abp.Domain.Repositories;
 using Jeuci.SalesSystem.Application.Services;
 using Jeuci.SalesSystem.Entities;
-using Jeuci.SalesSystem.Services.Dtos;
+using Jeuci.SalesSystem.SoftServices.Dtos;
 
-namespace Jeuci.SalesSystem.Services.Impl
+namespace Jeuci.SalesSystem.SoftServices.Impl
 {
     public class ServicePriceAppService : CrudAppService<ServicePrice, ServicePriceDto>, IServicePriceAppService
     {

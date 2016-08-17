@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Jeuci.SalesSystem.Entities
+﻿namespace Jeuci.SalesSystem.Entities.Common.Enums
 {
     /// <summary>
     /// 用户/管理员状态

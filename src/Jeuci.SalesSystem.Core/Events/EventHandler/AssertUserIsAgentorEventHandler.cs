@@ -9,6 +9,7 @@ using Abp.Events.Bus.Handlers;
 using Abp.Logging;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.EventData;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Events.EventHandler

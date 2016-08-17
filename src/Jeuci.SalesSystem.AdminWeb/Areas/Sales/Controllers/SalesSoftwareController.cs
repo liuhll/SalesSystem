@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
-using Jeuci.SalesSystem.AdminWeb.Areas.Sales.Models;
 using Jeuci.SalesSystem.AdminWeb.Controllers;
+using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
 using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Brands;
 using Jeuci.SalesSystem.Repositories;
-using Jeuci.SalesSystem.Services;
+using Jeuci.SalesSystem.Sales.Dtos;
+using Jeuci.SalesSystem.SoftServices;
 
 namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
 {
@@ -39,7 +40,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
         }
 
         [HttpPost]
-        public ActionResult SalesService(SalesViewModel model)
+        public ActionResult SalesService(SalesInput model)
         {
             var test = model;
             return null;

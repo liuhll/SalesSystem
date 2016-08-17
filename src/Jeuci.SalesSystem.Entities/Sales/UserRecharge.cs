@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jeuci.SalesSystem.Entities.Sales
+namespace Jeuci.SalesSystem.Entities
 {
     class UserRecharge
     {

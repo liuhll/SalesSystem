@@ -7,6 +7,7 @@ using Abp.EntityFramework;
 using Abp.Events.Bus;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.EventData;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.EntityFramework.Repositories.Impl

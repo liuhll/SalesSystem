@@ -1,24 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Jeuci.SalesSystem.Domain.Users.UserStore;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Repositories.Interface;
-using System.Security.Claims;
-using Abp.Dependency;
-using Abp.Domain.Repositories;
-using Abp.Domain.Uow;
-using Jeuci.SalesSystem.Entities.Common.Enums;
-using Abp.Extensions;
-using Jeuci.SalesSystem.Configuration;
-using Abp.Timing;
-using Jeuci.SalesSystem.Domain.Users;
-using Jeuci.SalesSystem.Domain.Users.UserStore;
-using Microsoft.AspNet.Identity;
 
-
-namespace Jeuci.SalesSystem.Domain.Administrators
+namespace Jeuci.SalesSystem.Domain.Users.Administrators
 {
     public class AdministratorManager : UserManagerBase<AdministratorInfo>, IAdministratorManager
 

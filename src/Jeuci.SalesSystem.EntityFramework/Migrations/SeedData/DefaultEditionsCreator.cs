@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.EntityFramework;
 
 namespace Jeuci.SalesSystem.Migrations.SeedData

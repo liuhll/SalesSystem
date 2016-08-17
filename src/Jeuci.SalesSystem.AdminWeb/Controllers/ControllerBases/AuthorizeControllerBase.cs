@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Abp.Web.Mvc.Authorization;
+﻿using Abp.Web.Mvc.Authorization;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Events.EventData;
-using Jeuci.SalesSystem.Events.EventHandler;
 
-
-namespace Jeuci.SalesSystem.AdminWeb.Controllers
+namespace Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases
 {
     [AbpMvcAuthorize]
     public class AuthorizeControllerBase : SalesSystemControllerBase

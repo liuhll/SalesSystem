@@ -1242,7 +1242,6 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\Products\ProductsAreaRegistration.cs" />
     <Compile Include="Areas\Sales\Controllers\SalesSoftwareController.cs" />
-    <Compile Include="Areas\Sales\Models\SalesViewModel.cs" />
     <Compile Include="Areas\Sales\SalesAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -1308,6 +1307,7 @@
     <Folder Include="Areas\Products\Controllers\" />
     <Folder Include="Areas\Products\Models\" />
     <Folder Include="Areas\Products\Views\Shared\" />
+    <Folder Include="Areas\Sales\Models\" />
     <Folder Include="Areas\Sales\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

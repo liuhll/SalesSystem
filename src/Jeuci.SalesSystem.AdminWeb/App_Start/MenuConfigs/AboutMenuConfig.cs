@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Abp.Application.Navigation;
+﻿using Abp.Application.Navigation;
 using Abp.Localization;
 
-namespace Jeuci.SalesSystem.AdminWeb
+namespace Jeuci.SalesSystem.AdminWeb.MenuConfigs
 {
     public static class AboutMenuConfig
     {

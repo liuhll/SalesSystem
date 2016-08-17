@@ -4,6 +4,8 @@ using Jeuci.SalesSystem.Entities;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Jeuci.SalesSystem.Mapping;
+using Jeuci.SalesSystem.Mapping.SalesMapping;
+using Jeuci.SalesSystem.Mapping.UserMapping;
 
 namespace Jeuci.SalesSystem.EntityFramework
 {
@@ -53,6 +55,8 @@ namespace Jeuci.SalesSystem.EntityFramework
             modelBuilder.Configurations.Add(new BrandInfoMap());
             modelBuilder.Configurations.Add(new ServiceInfoMap());
             modelBuilder.Configurations.Add(new ServicePriceMap());
+            modelBuilder.Configurations.Add(new UserServiceSubscriptionInfoMap());
+            modelBuilder.Configurations.Add(new UserServiceAuthInfoMap());
 
         }
 
@@ -74,6 +78,10 @@ namespace Jeuci.SalesSystem.EntityFramework
         public virtual IDbSet<ServiceInfo> ServiceInfos { get; set; }
 
         public virtual IDbSet<ServicePrice> ServicePrices { get; set; }
+
+        public virtual IDbSet<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        public virtual IDbSet<UserServiceAuthInfo> UserServiceAuthInfos { get; set; }
 
         #endregion
     }

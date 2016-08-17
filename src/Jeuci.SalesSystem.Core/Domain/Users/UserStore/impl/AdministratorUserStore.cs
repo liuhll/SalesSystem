@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Domain.Users.UserStore.impl

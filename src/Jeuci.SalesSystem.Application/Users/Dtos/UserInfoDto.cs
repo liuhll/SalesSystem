@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Jeuci.SalesSystem.Agents.Dtos;
+using Jeuci.SalesSystem.Entities.User;
 
 namespace Jeuci.SalesSystem.Users.Dtos
 {

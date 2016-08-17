@@ -9,11 +9,13 @@ using Microsoft.Owin.Security;
 using Jeuci.SalesSystem.Domain.Users;
 using Jeuci.SalesSystem.AdminWeb.Models.Account;
 using Jeuci.SalesSystem.Application.Services;
-using Jeuci.SalesSystem.Domain.Administrators;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Microsoft.AspNet.Identity;
 using Abp.UI;
+using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
+using Jeuci.SalesSystem.Domain.Users.Administrators;
+using Jeuci.SalesSystem.Entities.User;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers
 {

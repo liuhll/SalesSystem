@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Jeuci.SalesSystem.Entities;
-using Jeuci.SalesSystem.Services.Dtos;
+using Jeuci.SalesSystem.Entities.Common.Enums;
+using Jeuci.SalesSystem.SoftServices.Dtos;
 
 namespace Jeuci.SalesSystem.Brands.Dtos
 {

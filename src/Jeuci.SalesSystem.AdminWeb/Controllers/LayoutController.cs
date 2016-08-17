@@ -2,6 +2,7 @@
 using Abp.Application.Navigation;
 using Abp.Localization;
 using Abp.Threading;
+using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
 using Jeuci.SalesSystem.AdminWeb.Models.Layout;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers

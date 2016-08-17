@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
+using Jeuci.SalesSystem.Entities;
 
-namespace Jeuci.SalesSystem.Services.Dtos
+namespace Jeuci.SalesSystem.SoftServices.Dtos
 {
     [AutoMap(typeof(ServicePrice))]
     public class ServicePriceDto : EntityRequestInput<int>

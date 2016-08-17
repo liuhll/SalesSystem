@@ -10,6 +10,7 @@ using Abp.Linq.Extensions;
 using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Application.Services;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Users

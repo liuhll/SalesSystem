@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Domain.Entities;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 using Microsoft.AspNet.Identity;
 
 namespace Jeuci.SalesSystem.Entities

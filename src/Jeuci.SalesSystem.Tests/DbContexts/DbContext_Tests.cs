@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Users;
 using Shouldly;
 using Xunit;

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Repositories.Interface;
 
-namespace Jeuci.SalesSystem.Domain.Sales
+namespace Jeuci.SalesSystem.Domain.Sales.Impl
 {
     public class BrandInfoManager : IBrandInfoManager
     {

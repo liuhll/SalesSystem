@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Jeuci.SalesSystem.Brands.Dtos;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 
-namespace Jeuci.SalesSystem.Services.Dtos
+namespace Jeuci.SalesSystem.SoftServices.Dtos
 {
     [AutoMap(typeof(ServiceInfo))]
     public class ServiceInfoDto : EntityRequestInput<int>

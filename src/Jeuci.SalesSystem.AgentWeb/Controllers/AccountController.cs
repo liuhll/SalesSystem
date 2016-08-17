@@ -8,6 +8,7 @@ using Jeuci.SalesSystem.Application.Services;
 using Microsoft.Owin.Security;
 using Jeuci.SalesSystem.Domain.Users;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 using Jeuci.SalesSystem.Web.Models.Account;
 
 namespace Jeuci.SalesSystem.Web.Controllers

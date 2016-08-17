@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using Abp.Domain.Entities;
-using Abp.Events.Bus;
-using Jeuci.SalesSystem.Entities.EventData;
 
 namespace Jeuci.SalesSystem.Entities
 {

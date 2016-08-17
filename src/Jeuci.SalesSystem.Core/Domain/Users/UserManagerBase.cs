@@ -8,6 +8,7 @@ using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Microsoft.AspNet.Identity;
 using Abp.Extensions;
+using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Events.EventData;
 using Jeuci.SalesSystem.Helper;
 

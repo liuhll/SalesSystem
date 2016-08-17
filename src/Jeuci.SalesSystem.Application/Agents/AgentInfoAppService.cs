@@ -7,6 +7,7 @@ using Abp.Domain.Repositories;
 using Jeuci.SalesSystem.Agents.Dtos;
 using Jeuci.SalesSystem.Application.Services;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 
 namespace Jeuci.SalesSystem.Agents
 {

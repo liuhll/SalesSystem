@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Dependency;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.User;
 
 namespace Jeuci.SalesSystem.Domain.Users.UserStore
 {
