@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "startbootstrap-sb-admin-2": "git@github.com:BlackrockDigital/startbootstrap-sb-admin-2.git#3.3.7",
-    "jquery.serializeJSON" : "git@github.com:marioizquierdo/jquery.serializeJSON.git#2.7.2" 
+    "jquery.serializeJSON": "git@github.com:marioizquierdo/jquery.serializeJSON.git#2.7.2",
+    "bootstrap-table": "git@github.com:wenzhixin/bootstrap-table.git#1.11.0" 
   }
 }
