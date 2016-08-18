@@ -11,6 +11,8 @@ namespace Jeuci.SalesSystem.Mapping
             HasRequired(t => t.ServerInfo)
                 .WithMany(t => t.ServicePrices)
                 .HasForeignKey(t => t.ServiceId);
+
+            Ignore(t => t.IsLifeLongVersion);
         }
     }
 }

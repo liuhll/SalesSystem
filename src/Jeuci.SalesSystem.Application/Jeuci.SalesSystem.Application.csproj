@@ -97,6 +97,7 @@
     <Compile Include="Application\Dtos\DefaultPagedResultRequest.cs" />
     <Compile Include="Application\Services\CrudAppService.cs" />
     <Compile Include="Application\Services\ICrudAppService.cs" />
+    <Compile Include="AutoMapper\ModelMapperConfiguration.cs" />
     <Compile Include="Brands\Dtos\BrandInfoDto.cs" />
     <Compile Include="Brands\IBrandAppService.cs" />
     <Compile Include="Brands\BrandAppService.cs" />

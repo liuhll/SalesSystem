@@ -85,18 +85,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Enums\AuthType.cs" />
+    <Compile Include="Common\Enums\CodeEnum.cs" />
     <Compile Include="Common\Enums\LoginResultType.cs" />
     <Compile Include="Common\Enums\OrderState.cs" />
+    <Compile Include="Common\Enums\PurchaseTypeCode.cs" />
+    <Compile Include="Common\Enums\SalesResultType.cs" />
     <Compile Include="Common\Enums\State.cs" />
     <Compile Include="Common\Enums\UserState.cs" />
     <Compile Include="Common\Helpers\IpHelper.cs" />
     <Compile Include="Common\Interfaces\IsAdministrator.cs" />
     <Compile Include="Common\Interfaces\IsAgentor.cs" />
+    <Compile Include="Common\ResultMessage.cs" />
+    <Compile Include="Common\SalesResultMessage.cs" />
     <Compile Include="EventData\BrandServiceInfoMapEventData.cs" />
     <Compile Include="EventData\ServiceInfoServicePriceMapEventData.cs" />
     <Compile Include="EventData\UserIsAdminEventData.cs" />
     <Compile Include="EventData\UserIsAgentorEventData.cs" />
-    <Compile Include="Log\AdminLoginHistory.cs" />
+    <Compile Include="OperateLogs\AdminLoginHistory.cs" />
     <Compile Include="SalesSysException.cs" />
     <Compile Include="Product\BrandInfo.cs" />
     <Compile Include="Product\ServiceInfo.cs" />

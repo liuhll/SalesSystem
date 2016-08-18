@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
+using Abp.UI;
 using Jeuci.SalesSystem.AdminWeb.Controllers;
 using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
 using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Brands;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 using Jeuci.SalesSystem.Repositories;
+using Jeuci.SalesSystem.Sales;
 using Jeuci.SalesSystem.Sales.Dtos;
 using Jeuci.SalesSystem.SoftServices;
 
@@ -19,11 +22,14 @@ namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
     {
         private readonly IBrandAppService _brandAppService;
         private readonly IServiceInfoAppService _serviceInfoAppService;
+        private readonly ISaleSoftwareAppService _saleSoftwareAppService;
+
         public SalesSoftwareController(IBrandAppService brandAppService,
-            IServiceInfoAppService serviceInfoAppService)
+            IServiceInfoAppService serviceInfoAppService, ISaleSoftwareAppService saleSoftwareAppService)
         {
             _brandAppService = brandAppService;
             _serviceInfoAppService = serviceInfoAppService;
+            _saleSoftwareAppService = saleSoftwareAppService;
         }
 
         // GET: Sales/SalesSoftware
@@ -40,10 +46,18 @@ namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
         }
 
         [HttpPost]
-        public ActionResult SalesService(SalesInput model)
+        public async Task<JsonResult> SalesService(SalesInput model)
         {
-            var test = model;
-            return null;
+          //  CheckModelState();
+
+            var result = await _saleSoftwareAppService.SalesSoftwareService(model,CurrentUserInfo.Id);
+            switch (result.SalesResultType)
+            {
+                case SalesResultType.Success:
+                    return Json(result);
+                default:
+                    throw  new UserFriendlyException("销售失败", result.Message);
+            }
         }
 
         public ActionResult Record()

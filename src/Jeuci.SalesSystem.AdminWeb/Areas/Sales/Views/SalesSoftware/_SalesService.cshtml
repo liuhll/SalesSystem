@@ -5,6 +5,10 @@
 
 <script src="~/Scripts/sales/SelasConfirm.js"></script>
 
+<link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+@*<link href="~/Content/toastr.min.css" rel="stylesheet"/>*@
+<link href="~/Scripts/sweetalert/sweet-alert.css" rel="stylesheet"/>
+
 <div class="modal-content">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -12,7 +16,10 @@
     </div>
     @using (Html.BeginForm("", "", FormMethod.Post, new {role = "form", id="form1", @class = "form-horizontal"}))
     {
-        <div class="modal-body">
+        <div class="modal-body" style="overflow-x: hidden; overflow-y: auto; max-height: 490px;">
+            <div class="row hidden">
+                @Html.Hidden("ServiceId",Model.Id)
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="panel panel-info">
@@ -29,7 +36,7 @@
                                         <td>@servicePrice.AuthDesc</td>
                                         <td>@servicePrice.Price</td>
                                         <td>
-                                            @Html.RadioButton("SoftwareVersion", servicePrice.Id, count == 1)
+                                            @Html.RadioButton("ServicePriceId", servicePrice.Id, count == 1)
                                         </td>
                                     </tr>
                                     count++;
@@ -49,9 +56,9 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                @Html.Label("用户名", new {@class = "col-sm-2 control-label"})
+                                @Html.Label("通行证", new {@class = "col-sm-2 control-label"})
                                 <div class="col-sm-9">
-                                    @Html.TextBox("UserName", null, new {@class = "form-control"})
+                                    @Html.TextBox("Passport", null, new {@class = "form-control"})
                                 </div>
                             </div>
 

@@ -9,6 +9,9 @@ namespace Jeuci.SalesSystem.Mapping
         {
             ToTable("UserServiceAuthInfo");
             HasKey(t=>new {t.UId,t.SId});
+
+            Ignore(t => t.Id);
+            Ignore(t => t.IsActive);
         }
     }
 }

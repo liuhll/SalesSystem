@@ -21,11 +21,21 @@ namespace Jeuci.SalesSystem.Entities
 
         public string AuthDesc { get; set; }
 
-        public AuthType AuthType { get; set; }
+        public int AuthType { get; set; }
 
         public string Description { get; set; }
 
         public State State { get; set; }
-     
+
+        public bool IsLifeLongVersion
+        {
+            get
+            {
+                //为空的时候是终身版本
+                return !DateYear.HasValue;
+            }
+        }
+
+
     }
 }

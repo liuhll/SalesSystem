@@ -5,12 +5,11 @@ using Jeuci.SalesSystem.Entities.Common.Enums;
 
 namespace Jeuci.SalesSystem.Entities
 {
-    public class UserServiceSubscriptionInfo : Entity<int>
+    public class UserServiceSubscriptionInfo : Entity<string>
     {
         public UserServiceSubscriptionInfo()
         {
-            CreateTime = DateTime.Now;
-            AdminId = (int) NullAbpSession.Instance.UserId;
+            CreateTime = DateTime.Now;      
         }
 
         public int UId { get; set; }
@@ -23,7 +22,7 @@ namespace Jeuci.SalesSystem.Entities
 
         public DateTime CreateTime { get; set; }
 
-        public DateTime AuthExpiration { get; set; }
+        public DateTime? AuthExpiration { get; set; }
 
         public string Remarks { get; set; }
 
@@ -31,11 +30,11 @@ namespace Jeuci.SalesSystem.Entities
 
         public int AuthType { get; set; }
 
-        public int AgentId { get; set; }
+        public int? AgentId { get; set; }
 
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
 
-        public int Puid { get; set; }
+        public int? Puid { get; set; }
 
         public string OrderId { get; set; }
     }
