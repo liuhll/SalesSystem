@@ -68,5 +68,11 @@ namespace Jeuci.SalesSystem.Sales
 
             return new SalesResultMessage(SalesResultType.Other);
         }
+
+        public async Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit()
+        {
+            var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordLsit();
+            return salesServiceRecordList.MapTo<ICollection<SalesRecordOutput>>();
+        }
     }
 }

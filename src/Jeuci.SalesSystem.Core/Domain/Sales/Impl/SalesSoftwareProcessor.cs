@@ -129,6 +129,25 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
             }
         }
 
+        public async Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit()
+        {
+            var salesRecordList =await _userServiceSubscriptionRepository.GetAllListAsync();
+            return  salesRecordList.Select(a => new SalesRecordModel()
+            {
+                Id = a.Id,
+                AdminUserName = a.Administrator !=null? a.Administrator.UserName : string.Empty,
+                AgentUserName = a.AgentInfo !=null? a.AgentInfo.Id.ToString() : string.Empty,
+                AuthExpiration = a.AuthExpiration,
+                Cost = a.Cost,
+                Profit = a.Profit,
+                Remarks = a.Remarks,
+                SalesDateTime = a.CreateTime,
+                ServiceName = a.ServiceInfo.ServiceName,
+                UserName = a.User.UserName,
+
+            }).ToList();
+        }
+
         private string GetServiceSubscriptionId()
         {
             return string.Format("{0}{1}{2}",

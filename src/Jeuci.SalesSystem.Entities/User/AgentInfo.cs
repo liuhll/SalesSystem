@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Abp.Domain.Entities;
 
 namespace Jeuci.SalesSystem.Entities
@@ -23,6 +24,12 @@ namespace Jeuci.SalesSystem.Entities
         public string AuthType { get; set; }
 
         public string Website { get; set; }
+
+        #region 扩展属性
+
+        public virtual ICollection<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        #endregion
 
     }
 }

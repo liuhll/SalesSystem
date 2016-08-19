@@ -22,6 +22,8 @@
   "dependencies": {
     "startbootstrap-sb-admin-2": "git@github.com:BlackrockDigital/startbootstrap-sb-admin-2.git#3.3.7",
     "jquery.serializeJSON": "git@github.com:marioizquierdo/jquery.serializeJSON.git#2.7.2",
-    "bootstrap-table": "git@github.com:wenzhixin/bootstrap-table.git#1.11.0" 
+    "bootstrap-table": "git@github.com:wenzhixin/bootstrap-table.git#1.11.0",
+    "bootstrap-datepicker": "git@github.com:eternicode/bootstrap-datepicker.git#v1.6.4",
+    "bootstrap-daterangepicker": "git@github.com:dangrossman/bootstrap-daterangepicker.git#v2.1.24" 
   }
 }

@@ -23,5 +23,9 @@ namespace Jeuci.SalesSystem.Domain.Sales
         Task<PurchaseTypeCode> IsPurchaseHigherVersion(UserInfo user, int servicePriceId);
 
         Task<bool> PurchaseSoftwareService(UserInfo user,SalesInfoModel model,int salesManId);
+
+        Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit();
+
+
     }
 }

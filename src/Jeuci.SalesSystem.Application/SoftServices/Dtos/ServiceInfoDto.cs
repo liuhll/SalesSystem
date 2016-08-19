@@ -24,38 +24,38 @@ namespace Jeuci.SalesSystem.SoftServices.Dtos
 
         public virtual IList<ServicePriceDto> ServicePrices { get; set; }
 
-        private IDictionary<int, IList<ServicePriceDto>> _servicePricesDict;
+        //private IDictionary<int, IList<ServicePriceDto>> _servicePricesDict;
 
-        public virtual IDictionary<int, IList<ServicePriceDto>> ServicePricesDict
-        {
-            get
-            {
-                _servicePricesDict = new Dictionary<int, IList<ServicePriceDto>>();
-                int key = 1;
-                var count = 0;
-                ServicePriceDto[] values = new ServicePriceDto[SalesSystemConsts.LotteryServerPriceRowNum];
+        //public virtual IDictionary<int, IList<ServicePriceDto>> ServicePricesDict
+        //{
+        //    get
+        //    {
+        //        _servicePricesDict = new Dictionary<int, IList<ServicePriceDto>>();
+        //        int key = 1;
+        //        var count = 0;
+        //        ServicePriceDto[] values = new ServicePriceDto[SalesSystemConsts.LotteryServerPriceRowNum];
 
-                var rowMaxNum = ServicePrices.Count / SalesSystemConsts.LotteryServerPriceRowNum;
-                bool isSurplus = ServicePrices.Count % SalesSystemConsts.LotteryServerPriceRowNum > 0;
-                for (int i = 0; i < ServicePrices.Count; i++)
-                {
-                    values[count] = ServicePrices[i];
-                    count++;
-                    if ((i + 1) % SalesSystemConsts.LotteryServerPriceRowNum == 0)
-                    {
-                        _servicePricesDict[key] = values;
-                        count = 0;
-                        key++;
-                        values = new ServicePriceDto[SalesSystemConsts.LotteryServerPriceRowNum];
-                    }
-                    if (isSurplus && key > rowMaxNum)
-                    {
-                        _servicePricesDict[key] = values;
-                    }
+        //        var rowMaxNum = ServicePrices.Count / SalesSystemConsts.LotteryServerPriceRowNum;
+        //        bool isSurplus = ServicePrices.Count % SalesSystemConsts.LotteryServerPriceRowNum > 0;
+        //        for (int i = 0; i < ServicePrices.Count; i++)
+        //        {
+        //            values[count] = ServicePrices[i];
+        //            count++;
+        //            if ((i + 1) % SalesSystemConsts.LotteryServerPriceRowNum == 0)
+        //            {
+        //                _servicePricesDict[key] = values;
+        //                count = 0;
+        //                key++;
+        //                values = new ServicePriceDto[SalesSystemConsts.LotteryServerPriceRowNum];
+        //            }
+        //            if (isSurplus && key > rowMaxNum)
+        //            {
+        //                _servicePricesDict[key] = values;
+        //            }
                
-                }
-                return _servicePricesDict;
-            }
-        }
+        //        }
+        //        return _servicePricesDict;
+        //    }
+        //}
     }
 }

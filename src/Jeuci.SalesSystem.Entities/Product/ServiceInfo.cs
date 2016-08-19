@@ -18,9 +18,10 @@ namespace Jeuci.SalesSystem.Entities
 
         public int Sort { get; set; }
 
-     //   private IList<ServicePrice> _servicePrices;
+        //   private IList<ServicePrice> _servicePrices;
 
-        public virtual IList<ServicePrice> ServicePrices {
+#region 扩展属性
+        public virtual ICollection<ServicePrice> ServicePrices {
             //get
             //{
             //    if (!m_isTriggerEvent)
@@ -34,5 +35,9 @@ namespace Jeuci.SalesSystem.Entities
             //}
             get; set;
         }
+
+        public virtual ICollection<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        #endregion
     }
 }

@@ -13,6 +13,8 @@ namespace Jeuci.SalesSystem.Sales
     public interface ISaleSoftwareAppService : ITransientDependency
     {
         Task<SalesResultMessage> SalesSoftwareService(SalesInput model, int salesManId);
+
+        Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit();
     }
 }
 

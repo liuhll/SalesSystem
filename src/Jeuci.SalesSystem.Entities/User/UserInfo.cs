@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Abp.Events.Bus;
 using Jeuci.SalesSystem.Entities.Common.Interfaces;
 using Jeuci.SalesSystem.Entities.EventData;
@@ -65,5 +66,11 @@ namespace Jeuci.SalesSystem.Entities
                 return _isAgentor;
             }
         }
+
+        #region 扩展属性
+
+        public virtual ICollection<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        #endregion
     }
 }

@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using Abp.Application.Services.Dto;
 using Abp.UI;
-using Jeuci.SalesSystem.AdminWeb.Controllers;
 using Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases;
-using Jeuci.SalesSystem.Application.Dtos;
 using Jeuci.SalesSystem.Brands;
+using Jeuci.SalesSystem.Brands.Dtos;
 using Jeuci.SalesSystem.Entities.Common.Enums;
-using Jeuci.SalesSystem.Repositories;
 using Jeuci.SalesSystem.Sales;
 using Jeuci.SalesSystem.Sales.Dtos;
 using Jeuci.SalesSystem.SoftServices;
+using Jeuci.SalesSystem.SoftServices.Dtos;
 
 namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
 {
@@ -56,12 +52,43 @@ namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
                 case SalesResultType.Success:
                     return Json(result);
                 default:
-                    throw  new UserFriendlyException("销售失败", result.Message);
+                    throw  new UserFriendlyException("授权失败", result.Message);
             }
         }
 
-        public ActionResult Record()
+        public async Task<ActionResult> Record()
         {
+            var brandList = await _brandAppService.GetBrandsByCurrentUserBrandIds(CurrentUserInfo.Brands);
+            brandList.Add(new BrandInfoDto()
+            {
+                Id = -1,
+                BrandName = "所有品牌"
+            });
+
+            ViewBag.BrandList = brandList.OrderBy(p=>p.Id).Select(a => new SelectListItem()
+            {
+                Text = a.BrandName,
+                Value = a.Id.ToString(),
+                Selected = a.Id ==-1
+            });
+
+            var serviceInfoList = await _serviceInfoAppService.GetAllServiceInfoList();
+            serviceInfoList.Add(new ServiceInfoDto()
+            {
+                Id = -1,
+                BrandId = -1,
+                ServiceName = "所有产品"
+
+            });
+            ViewBag.ServiceInfoList = serviceInfoList.OrderBy(p => p.Id).Select(a => new SelectListItem()
+            {
+                Text = a.ServiceName,
+                Value = a.Id.ToString(),
+                Selected = a.Id == -1
+            });
+
+            var recordList = await _saleSoftwareAppService.GetSalesServiceRecordLsit();
+
             return View();
         }
 

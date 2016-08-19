@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Abp.Domain.Entities.Auditing;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 
@@ -24,6 +25,11 @@ namespace Jeuci.SalesSystem.Entities
 
         public string Brands { get; set; }
 
+        #region 扩展属性
+
+        public virtual ICollection<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        #endregion
 
     }
 }
