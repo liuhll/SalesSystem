@@ -163,6 +163,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 SalesDateTime = a.CreateTime,
                 ServiceName = a.ServiceInfo.ServiceName,
                 UserName = a.User.UserName,
+                UserPhone = a.User.Mobile
 
             });
         }
