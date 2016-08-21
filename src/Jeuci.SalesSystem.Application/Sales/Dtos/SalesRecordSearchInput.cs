@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Abp.Application.Services.Dto;
+
+namespace Jeuci.SalesSystem.Sales.Dtos
+{
+    public class SalesRecordSearchInput : IInputDto
+    {
+        public int Offset { get; set; }
+
+        public int Limit { get; set; }
+
+        public int Brand { get; set; }
+
+        public int ServiceInfo { get; set; }
+
+        public string OrderId { get; set; }
+
+        public string UserPassport { get; set; }
+
+        public string Agent { get; set; }
+
+        public string SalesAdmin { get; set; }
+
+        public string Reservation { get; set; }
+
+        public DateTime StartSalesDate
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Reservation))
+                {
+                    var dates = Reservation.Split('-');
+                    return Convert.ToDateTime(dates[0]);
+                }
+                return new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day);
+            }
+        }
+
+        public DateTime EndSalesDate
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Reservation))
+                {
+                    var dates = Reservation.Split('-');
+                    return Convert.ToDateTime(dates[1]).AddDays(1);
+                }
+                return new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day+1);
+            }
+        }
+    }
+}

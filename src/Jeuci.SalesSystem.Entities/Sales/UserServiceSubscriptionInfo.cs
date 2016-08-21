@@ -15,7 +15,9 @@ namespace Jeuci.SalesSystem.Entities
         public  int UId { get; set; }
   
         public  int SId { get; set; }
-      
+
+        //public int SpId { get; set; }
+
         public decimal Cost { get; set; }
 
         public decimal Profit { get; set; }
@@ -38,15 +40,20 @@ namespace Jeuci.SalesSystem.Entities
 
         public string OrderId { get; set; }
 
+        public string AuthDesc { get; set; }
+
         #region 扩展属性
 
         public virtual UserInfo User { get; set; }
 
         public virtual ServiceInfo ServiceInfo { get; set; }
 
+        //public virtual ServicePrice ServicePrice { get; set; }
+
         public virtual AgentInfo AgentInfo { get; set; }
 
         public virtual AdministratorInfo Administrator { get; set; }
+
 
         #endregion
     }

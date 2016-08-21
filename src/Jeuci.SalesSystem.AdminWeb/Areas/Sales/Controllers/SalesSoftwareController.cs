@@ -86,9 +86,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Areas.Sales.Controllers
                 Value = a.Id.ToString(),
                 Selected = a.Id == -1
             });
-
-            var recordList = await _saleSoftwareAppService.GetSalesServiceRecordLsit();
-
+            
             return View();
         }
 

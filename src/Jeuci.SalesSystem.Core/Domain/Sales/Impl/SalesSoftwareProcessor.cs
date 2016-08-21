@@ -79,14 +79,14 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                     UId = user.Id,
                     SId = model.ServicePriceId,
                     AuthType = servicePrice.AuthType,
-                };            
+                };
                 userServiceAuth.AuthExpiration = GetAuthExpiration(servicePrice, userServiceAuth, true);
             }
             else
             {
                 userServiceAuth.AuthExpiration = GetAuthExpiration(servicePrice, userServiceAuth);
                 userServiceAuth.AuthType = servicePrice.AuthType;
-                userServiceAuth.UpdateTime = DateTime.Now;               
+                userServiceAuth.UpdateTime = DateTime.Now;
             }
 
 
@@ -95,6 +95,8 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 Id = GetServiceSubscriptionId(),
                 UId = user.Id,
                 SId = model.ServiceId,
+                //SpId = model.ServicePriceId,
+                AuthDesc = servicePrice.AuthDesc,
                 Cost = model.Cost,
                 Profit = model.Cost,
                 AuthExpiration = userServiceAuth.AuthExpiration,
@@ -129,22 +131,28 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
             }
         }
 
-        public async Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit()
+       
+
+        public async Task<IList<SalesRecordModel>> GetSalesServiceRecordPagedList()
         {
-            var salesRecordList =await _userServiceSubscriptionRepository.GetAllListAsync();
-            return  salesRecordList.Select(a => new SalesRecordModel()
+            var saleRecordList = await _userServiceSubscriptionRepository.GetAllListAsync();
+
+            return saleRecordList.Select(a => new SalesRecordModel()
             {
                 Id = a.Id,
-                AdminUserName = a.Administrator !=null? a.Administrator.UserName : string.Empty,
-                AgentUserName = a.AgentInfo !=null? a.AgentInfo.Id.ToString() : string.Empty,
+                AdminUserName = a.Administrator != null ? a.Administrator.UserName : string.Empty,
+                AgentUserName = a.AgentInfo != null ? a.AgentInfo.Id.ToString() : string.Empty,
                 AuthExpiration = a.AuthExpiration,
                 Cost = a.Cost,
                 Profit = a.Profit,
                 Remarks = a.Remarks,
                 SalesDateTime = a.CreateTime,
-                ServiceName = a.ServiceInfo.ServiceName,
+                ServiceName = a.AuthDesc,
+                UserId = a.User.Id,
                 UserName = a.User.UserName,
-
+                UserPhone = a.User.Mobile,
+                BrandId = a.ServiceInfo.BrandId,
+                ServerInfoId = a.ServiceInfo.Id
             }).ToList();
         }
 
@@ -182,9 +190,9 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
             Debug.Assert(currentUserServiceAuth.AuthExpiration != null, "currentUserServiceAuth.AuthExpiration != null");
             if (currentUserServiceAuth.IsActive)
             {
-               return currentUserServiceAuth.AuthExpiration.Value.AddYears(servicePrice.DateYear.Value)
-                      .AddMonths(servicePrice.DateMonth)
-                      .AddDays(servicePrice.DateDay);
+                return currentUserServiceAuth.AuthExpiration.Value.AddYears(servicePrice.DateYear.Value)
+                       .AddMonths(servicePrice.DateMonth)
+                       .AddDays(servicePrice.DateDay);
             }
             return DateTime.Now.AddYears(servicePrice.DateYear.Value)
                 .AddMonths(servicePrice.DateMonth)

@@ -1,4 +1,5 @@
-﻿using Abp.Domain.Entities;
+﻿using System.Collections.Generic;
+using Abp.Domain.Entities;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 
 namespace Jeuci.SalesSystem.Entities
@@ -35,6 +36,12 @@ namespace Jeuci.SalesSystem.Entities
                 return !DateYear.HasValue;
             }
         }
+
+        #region 扩展属性
+
+        //public virtual ICollection<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
+
+        #endregion
 
 
     }

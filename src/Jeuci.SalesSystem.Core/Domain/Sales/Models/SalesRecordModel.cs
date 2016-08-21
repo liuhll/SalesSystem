@@ -10,6 +10,12 @@ namespace Jeuci.SalesSystem.Domain.Sales.Models
     {
         public string Id { get; set; }
 
+        public int BrandId { get; set; }
+
+        public int ServerInfoId { get; set; }
+
+        public int UserId { get; set; }
+
         public string ServiceName { get; set; }
 
         public string UserName { get; set; }

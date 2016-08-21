@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abp;
+using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using Abp.Domain.Uow;
 using Jeuci.SalesSystem.Domain.Sales;
 using Jeuci.SalesSystem.Domain.Sales.Models;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Jeuci.SalesSystem.Sales.Dtos;
+using Abp.Linq.Extensions;
+using Jeuci.SalesSystem.Application.Dtos;
+using Jeuci.SalesSystem.Data;
+using Jeuci.SalesSystem.Sales.Policy;
 
 namespace Jeuci.SalesSystem.Sales
 {
-    public class SaleSoftwareAppService : ISaleSoftwareAppService
+    public class SaleSoftwareAppService : AbpServiceBase, ISaleSoftwareAppService
     {
 
         private readonly IRepository<UserInfo> _userInfoRepository;
@@ -69,10 +74,22 @@ namespace Jeuci.SalesSystem.Sales
             return new SalesResultMessage(SalesResultType.Other);
         }
 
-        public async Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit()
+        //public async Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit()
+        //{
+        //    var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordPagedList();
+
+        //    return salesServiceRecordList.MapTo<ICollection<SalesRecordOutput>>();
+        //}
+
+        public async Task<BootstrapTablePagedResult<SalesRecordOutput>> GetSalesServiceRecordPageList(SalesRecordSearchInput searchInput)
         {
-            var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordLsit();
-            return salesServiceRecordList.MapTo<ICollection<SalesRecordOutput>>();
+            var salesServiceRecordList = await _salesSoftwareProcessor.GetSalesServiceRecordPagedList();
+            
+            var salesRecordPolicy = new SalesRecordPolicy(salesServiceRecordList);
+            var salesServiceRecordResult = salesRecordPolicy.SearchSalesServiceRecord(searchInput);
+
+            return new BootstrapTablePagedResult<SalesRecordOutput>(salesServiceRecordResult.MapTo<IList<SalesRecordOutput>>(), 
+                searchInput.Offset, searchInput.Limit);
         }
     }
 }

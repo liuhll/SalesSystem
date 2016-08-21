@@ -24,8 +24,9 @@ namespace Jeuci.SalesSystem.Domain.Sales
 
         Task<bool> PurchaseSoftwareService(UserInfo user,SalesInfoModel model,int salesManId);
 
-        Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit();
+        //Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit();
 
+        Task<IList<SalesRecordModel>> GetSalesServiceRecordPagedList();
 
     }
 }

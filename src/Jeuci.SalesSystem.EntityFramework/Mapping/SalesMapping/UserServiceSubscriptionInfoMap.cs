@@ -17,6 +17,10 @@ namespace Jeuci.SalesSystem.Mapping.SalesMapping
                 .WithMany(p => p.UserServiceSubscriptionInfos)
                 .HasForeignKey(t => t.UId);
 
+            //HasRequired(t => t.ServicePrice)
+            //    .WithMany(t => t.UserServiceSubscriptionInfos)
+            //    .HasForeignKey(t => t.SpId);
+
 
             HasOptional(t => t.AgentInfo)
                 .WithMany(t => t.UserServiceSubscriptionInfos)
@@ -25,6 +29,7 @@ namespace Jeuci.SalesSystem.Mapping.SalesMapping
             HasOptional(t => t.Administrator)
              .WithMany(t => t.UserServiceSubscriptionInfos)
              .HasForeignKey(t => t.AdminId);
+
         }
     }
 }
