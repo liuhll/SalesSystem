@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Abp;
+using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using Abp.Domain.Uow;
 using Jeuci.SalesSystem.Domain.Sales;
 using Jeuci.SalesSystem.Domain.Sales.Models;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Entities.Common;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Jeuci.SalesSystem.Sales.Dtos;
+using Abp.Linq.Extensions;
+using Jeuci.SalesSystem.Application.Dtos;
+using Jeuci.SalesSystem.Data;
 
 namespace Jeuci.SalesSystem.Sales
 {
-    public class SaleSoftwareAppService : ISaleSoftwareAppService
+    public class SaleSoftwareAppService : AbpServiceBase, ISaleSoftwareAppService
     {
 
         private readonly IRepository<UserInfo> _userInfoRepository;
@@ -72,7 +76,23 @@ namespace Jeuci.SalesSystem.Sales
         public async Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit()
         {
             var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordLsit();
+
             return salesServiceRecordList.MapTo<ICollection<SalesRecordOutput>>();
+        }
+
+        public BootstrapTablePagedResult<SalesRecordOutput> GetSalesServiceRecordPageList(SalesRecordSearchInput searchInput)
+        {
+            var salesServiceRecordList =  _salesSoftwareProcessor.GetSalesServiceRecordPagedLsit()
+                .Where(p=>p.AdminUserName.Equals(searchInput.UserPassport));
+
+            var pagedResultOutput = new PagedResultOutput<SalesRecordOutput>(salesServiceRecordList.Count(),
+                salesServiceRecordList.OrderByDescending(e => e.Id).PageBy(new DefaultPagedResultRequest()
+                {
+                    SkipCount = searchInput.Offset,
+                    MaxResultCount = searchInput.Limit
+                }).MapTo<List<SalesRecordOutput>>());
+
+            return new BootstrapTablePagedResult<SalesRecordOutput>(pagedResultOutput);
         }
     }
 }

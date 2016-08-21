@@ -144,8 +144,27 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 SalesDateTime = a.CreateTime,
                 ServiceName = a.ServiceInfo.ServiceName,
                 UserName = a.User.UserName,
+                UserPhone = a.User.SafeMobile
 
             }).ToList();
+        }
+
+        public IQueryable<SalesRecordModel> GetSalesServiceRecordPagedLsit()
+        {
+            return _userServiceSubscriptionRepository.GetAll().Select(a => new SalesRecordModel()
+            {
+                Id = a.Id,
+                AdminUserName = a.Administrator != null ? a.Administrator.UserName : string.Empty,
+                AgentUserName = a.AgentInfo != null ? a.AgentInfo.Id.ToString() : string.Empty,
+                AuthExpiration = a.AuthExpiration,
+                Cost = a.Cost,
+                Profit = a.Profit,
+                Remarks = a.Remarks,
+                SalesDateTime = a.CreateTime,
+                ServiceName = a.ServiceInfo.ServiceName,
+                UserName = a.User.UserName,
+
+            });
         }
 
         private string GetServiceSubscriptionId()

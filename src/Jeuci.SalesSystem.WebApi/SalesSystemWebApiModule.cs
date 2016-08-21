@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Web.Http;
 using Abp.Application.Services;
 using Abp.Modules;
 using Abp.WebApi;
@@ -16,6 +17,7 @@ namespace Jeuci.SalesSystem
             DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(SalesSystemApplicationModule).Assembly, "app")
                 .Build();
+            
         }
     }
 }

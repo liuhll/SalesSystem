@@ -26,6 +26,7 @@ namespace Jeuci.SalesSystem.Domain.Sales
 
         Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit();
 
+        IQueryable<SalesRecordModel> GetSalesServiceRecordPagedLsit();
 
     }
 }

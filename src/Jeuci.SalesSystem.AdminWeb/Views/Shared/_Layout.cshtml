@@ -24,6 +24,8 @@
         var abp = abp || {}; abp.appPath = '@ApplicationPath';
     </script>
 
+    @Scripts.Render("~/Bundles/vendor/basejs")
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
@@ -48,7 +50,6 @@
         </div>
     </div>
       
-    @Scripts.Render("~/Bundles/vendor/basejs")
     @Scripts.Render("~/Bundles/layoutAbpjs")
     
 

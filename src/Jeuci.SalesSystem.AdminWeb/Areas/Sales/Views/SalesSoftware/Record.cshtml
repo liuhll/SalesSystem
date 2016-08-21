@@ -19,11 +19,10 @@
     <script src="~/Abp/Lib/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="~/Abp/Lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="~/Abp/Lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="~/Scripts/sales/SalesRecord.js"></script>
 
 }
 <div class="row">
-    <div class="row">
+    <div class="row title">
         <div class="col-sm-12">
             <h3 class="page-header">销售记录</h3>
         </div>
@@ -33,11 +32,11 @@
             <div class="form-inline" role="form">
                 <div class="form-group">
                     <label for="brandList">品牌: </label>
-                    @Html.DropDownList("BrandList", null, new { @class = "form-control input-sm w120", id = "brandList" })
+                    @Html.DropDownList("BrandList", null, new {@class = "form-control input-sm w120", id = "brand", name= "brand" })
                 </div>
                 <div class="form-group">
                     <label for="serviceInfoList">产品: </label>
-                    @Html.DropDownList("ServiceInfoList", null, new { @class = "form-control input-sm ", id = "serviceInfoList" })
+                    @Html.DropDownList("ServiceInfoList", null, new {@class = "form-control input-sm ", id = "serviceInfo", name = "serviceInfo" })
                 </div>
                 <div class="form-group">
                     <label>日期范围: </label>
@@ -45,34 +44,34 @@
                         <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="text" class="form-control pull-right input-sm" id="reservation">
+                        <input type="text" id="reservation" name="reservation" class="form-control pull-right input-sm" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label>订单号: </label>
-                    <input name="offset" class="form-control input-sm w150" type="text">
+                    <input id="orderId" name="orderId" class="form-control input-sm " type="text">
                 </div>
             </div>
             <div class="form-inline" role="form">
 
                 <div class="form-group">
                     <label>客户通行证: </label>
-                    <input name="offset" class="form-control input-sm w120" type="text">
+                    <input name="userPassport" class="form-control input-sm " type="text">
                 </div>
                 <div class="form-group">
                     <label>代理商: </label>
-                    <input name="offset" class="form-control input-sm w120" type="text">
+                    <input name="Agent" class="form-control input-sm " type="text">
                 </div>
                 <div class="form-group">
                     <label>销售: </label>
-                    <input name="offset" class="form-control input-sm w120" type="text">
+                    <input name="SalesInfo" class="form-control input-sm " type="text">
                 </div>
 
                 <div class="form-group">
                     <a href="#" class="btn btn-link"><i class=""></i>前一天</a>
                     <a href="#" class="btn btn-link"><i class=""></i>后一天</a>
                 </div>
-                <button class="btn btn-info btn-sm" type="button">
+                <button id="search" class="btn btn-info btn-sm" type="button">
                     <i class="fa fa-search"></i>筛选数据
                 </button>
             </div>
@@ -80,32 +79,65 @@
 
         <table id="table"
                data-toggle="table"
-               data-height="460"
                data-toolbar="#toolbar"
                data-show-refresh="true"
                data-show-toggle="true"
                data-show-columns="true"
                data-query-params="queryParams"
-               data-response-handler="responseHandler">
+               data-pagination="true"
+               data-side-pagination="server"
+               data-method="get"
+               data-url="/api/SalesRecord/GetList">
             <thead>
-                <tr>
-                    <th>Item ID</th>
-                    <th>Item Name</th>
-                    <th>Item Price</th>
-                </tr>
+            <tr>
+                <th data-field="id">单号</th>
+                <th data-field="serviceName">服务名称</th>
+                <th data-field="userName">用户名</th>
+                <th data-field="userPhone">手机号</th>
+            </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Item 1</td>
-                    <td>$1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Item 2</td>
-                    <td>$2</td>
-                </tr>
-            </tbody>
+
         </table>
     </div>
 </div>
+
+<script type="text/javascript">
+    var $table = $('#table'),
+        $search = $('#search') ;
+
+    function queryParams(params) {
+        $('#toolbar')
+            .find('input[name]')
+            .each(function() {
+                params[$(this).attr('name')] = $(this).val();
+            });
+        debugger;
+        return params;
+    }
+
+    function responseHandler(res) {
+        return res.rows;
+    }
+
+    function getHeight() {
+        return $(window).height() - $('.title').outerHeight(true);
+    }
+
+    $(function () {
+
+        $('#reservation').daterangepicker();
+
+        $table.bootstrapTable({
+            height: getHeight()
+        });
+
+        $search.click(function () {
+            $table.bootstrapTable('refresh');
+        });
+    });
+
+
+
+</script>
+
+ 

@@ -6,7 +6,7 @@ using Jeuci.SalesSystem.Domain.Sales.Models;
 namespace Jeuci.SalesSystem.Sales.Dtos
 {
     [AutoMap(typeof(SalesRecordModel))]
-    public class SalesRecordOutput : EntityRequestInput<string>
+    public class SalesRecordOutput : EntityRequestInput<string>, IOutputDto
     {
     //    public string Id { get; set; }
 

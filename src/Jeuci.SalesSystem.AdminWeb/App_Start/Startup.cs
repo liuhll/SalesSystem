@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Abp.Owin;
 using Jeuci.SalesSystem.AdminWeb;
+using Jeuci.SalesSystem.Api.Controllers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -17,6 +18,8 @@ namespace Jeuci.SalesSystem.AdminWeb
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
             app.UseAbp();
+
+            app.UseOAuthBearerAuthentication(AccountController.OAuthBearerOptions);
 
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
