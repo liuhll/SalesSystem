@@ -69,6 +69,12 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                         p => p.UId == user.Id && p.SId == model.ServiceId);
 
             var servicePrice = await _servicePriceRepository.FirstOrDefaultAsync(p => p.Id == model.ServicePriceId);
+            //历史购买的已经生效的订单
+            var historyEffectiveOrder =
+                await
+                    _userServiceSubscriptionRepository.GetAllListAsync(p => p.UId == user.Id && p.SId == model.ServiceId&&p.State==OrderState.Effective);
+
+
             bool isNewPurchase = false;
 
             if (userServiceAuth == null)
@@ -118,6 +124,14 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                     else
                     {
                         await _userServiceAuthRepository.UpdateAsync(userServiceAuth);
+                    }
+                    if (historyEffectiveOrder != null && historyEffectiveOrder.Count > 0)
+                    {
+                        foreach (var historyOrder in historyEffectiveOrder)
+                        {
+                            historyOrder.State = OrderState.Legal;
+                            await _userServiceSubscriptionRepository.UpdateAsync(historyOrder);
+                        }
                     }
                     await _userServiceSubscriptionRepository.InsertAsync(userServiceSubscriptionInfo);
                     await uow.CompleteAsync();
