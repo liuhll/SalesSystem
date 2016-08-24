@@ -20,14 +20,14 @@ namespace Jeuci.SalesSystem.AdminWeb
                 .Include(string.Format(ResourcePath, "metisMenu/dist/metisMenu.min.css"), new CssRewriteUrlTransform())
                 .Include(string.Format(ResourcePath, "startbootstrap-sb-admin-2/dist/css/sb-admin-2.css"), new CssRewriteUrlTransform())
                 .Include(string.Format(ResourcePath, "font-awesome/css/font-awesome.css"), new CssRewriteUrlTransform())
+                .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
                 );
 
             //  ~/Bundles/vendor/abpcss
             bundles.Add(
               new StyleBundle("~/Bundles/vendor/abpcss")
-                    .Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())
-                    .Include("~/Content/toastr.min.css", new CssRewriteUrlTransform())
-                    .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/bootstrap-cosmo.min.css", new CssRewriteUrlTransform())                                   
                     .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())                  
               );
 

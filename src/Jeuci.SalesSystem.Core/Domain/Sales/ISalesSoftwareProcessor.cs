@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abp.Dependency;
 using Jeuci.SalesSystem.Domain.Sales.Models;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.Common;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 
 namespace Jeuci.SalesSystem.Domain.Sales
@@ -26,7 +27,8 @@ namespace Jeuci.SalesSystem.Domain.Sales
 
         //Task<ICollection<SalesRecordModel>> GetSalesServiceRecordLsit();
 
-        Task<IList<SalesRecordModel>> GetSalesServiceRecordPagedList();
+        Task<IList<SalesRecordModel>> GetSalesServiceRecordList();
 
+        Task<ResultMessage<string>> UndoSalesOrderById(string id);
     }
 }

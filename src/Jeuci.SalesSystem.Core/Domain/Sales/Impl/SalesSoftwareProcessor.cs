@@ -10,8 +10,10 @@ using Abp.Logging;
 using Abp.Runtime.Session;
 using Jeuci.SalesSystem.Domain.Sales.Models;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.Common;
 using Jeuci.SalesSystem.Entities.Common.Enums;
 using Jeuci.SalesSystem.Helper;
+using Jeuci.SalesSystem.Domain.Sales.Policy;
 
 namespace Jeuci.SalesSystem.Domain.Sales.Impl
 {
@@ -83,7 +85,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 userServiceAuth = new UserServiceAuthInfo()
                 {
                     UId = user.Id,
-                    SId = model.ServicePriceId,
+                    SId = model.ServiceId,
                     AuthType = servicePrice.AuthType,
                 };
                 userServiceAuth.AuthExpiration = GetAuthExpiration(servicePrice, userServiceAuth, true);
@@ -130,6 +132,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                         foreach (var historyOrder in historyEffectiveOrder)
                         {
                             historyOrder.State = OrderState.Legal;
+                            historyOrder.UpdateTime = DateTime.Now;
                             await _userServiceSubscriptionRepository.UpdateAsync(historyOrder);
                         }
                     }
@@ -147,7 +150,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
 
        
 
-        public async Task<IList<SalesRecordModel>> GetSalesServiceRecordPagedList()
+        public async Task<IList<SalesRecordModel>> GetSalesServiceRecordList()
         {
             var saleRecordList = await _userServiceSubscriptionRepository.GetAllListAsync();
 
@@ -166,9 +169,49 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 UserName = a.User.UserName,
                 UserPhone = a.User.Mobile,
                 BrandId = a.ServiceInfo.BrandId,
-                ServerInfoId = a.ServiceInfo.Id
+                ServerInfoId = a.ServiceInfo.Id,
+                OrderState = a.State,
             }).ToList();
         }
+
+        public async Task<ResultMessage<string>> UndoSalesOrderById(string id)
+        {
+            var undoSalesOrder =await _userServiceSubscriptionRepository.GetAsync(id);
+            undoSalesOrder.State = OrderState.Invalid;
+            undoSalesOrder.UpdateTime = DateTime.Now;
+          
+            var userServiceAuthInfo = await _userServiceAuthRepository.SingleAsync(p => p.SId == undoSalesOrder.SId && p.UId == undoSalesOrder.UId);
+
+            var userServiceSubscriptionPolicy = new UserServiceSubscriptionPolicy(undoSalesOrder.UId, undoSalesOrder.SId);
+            bool isHasRollBackOder = true;
+            var rollBackOderInfo = userServiceSubscriptionPolicy.GetRollBackOderInfo(_userServiceSubscriptionRepository,ref isHasRollBackOder);
+            if (isHasRollBackOder)
+            {
+                rollBackOderInfo.State = OrderState.Effective;
+                rollBackOderInfo.UpdateTime = DateTime.Now;
+
+                userServiceAuthInfo.AuthExpiration = rollBackOderInfo.AuthExpiration;
+                userServiceAuthInfo.AuthType = rollBackOderInfo.AuthType;
+                userServiceAuthInfo.UpdateTime = DateTime.Now;
+            }
+            using (var uow = _unitOfWorkManager.Begin())
+            {
+                await _userServiceSubscriptionRepository.UpdateAsync(undoSalesOrder);
+                if (isHasRollBackOder)
+                {
+                    await _userServiceSubscriptionRepository.UpdateAsync(rollBackOderInfo);
+                    await _userServiceAuthRepository.UpdateAsync(userServiceAuthInfo);
+                }
+                else
+                {
+                    await _userServiceAuthRepository.DeleteAsync(userServiceAuthInfo);
+                }
+                await uow.CompleteAsync();
+                return new ResultMessage<string>(string.Format("id为{0}的订单撤销成功!",id));
+            }
+
+        }
+
 
         private string GetServiceSubscriptionId()
         {

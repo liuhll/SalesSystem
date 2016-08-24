@@ -33,11 +33,11 @@
             <div class="form-inline" role="form">
                 <div class="form-group">
                     <label for="brandList">品牌: </label>
-                    @Html.DropDownList("BrandList", null, new {@class = "form-control input-sm", id = "Brand"})
+                    @Html.DropDownList("BrandList", null, new { @class = "form-control input-sm", id = "Brand" })
                 </div>
                 <div class="form-group">
                     <label for="serviceInfoList">产品: </label>
-                    @Html.DropDownList("ServiceInfoList", null, new {@class = "form-control input-sm ", id = "ServiceInfo" })
+                    @Html.DropDownList("ServiceInfoList", null, new { @class = "form-control input-sm ", id = "ServiceInfo" })
                 </div>
                 <div class="form-group">
                     <label>日期范围: </label>
@@ -45,7 +45,7 @@
                         <div class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                         </div>
-                        <input type="text" id="reservation" name="reservation" class="form-control pull-right input-sm" >
+                        <input type="text" id="reservation" name="reservation" class="form-control pull-right input-sm">
                     </div>
                 </div>
                 <div class="form-group">
@@ -88,22 +88,25 @@
                data-pagination="true"
                data-page-size="50"
                data-page-list="[50,100,200]"
-               data-side-pagination="server"               
+               data-side-pagination="server"
                data-method="get"
+               data-row-style="rowStyle"
                data-url="/api/SalesRecord/GetList">
             <thead>
-            <tr>
-                <th data-field="id">单号</th>
-                <th data-field="serviceName">服务名称</th>
-                <th data-field="userPassport">用户通行证</th>
-                <th data-field="cost">销售价</th>
-                <th data-field="profit">利润</th>
-                <th data-field="salesDateTime" data-formatter="dateFomatter">销售日期</th>
-                <th data-field="authExpiration" data-formatter="dateFomatter">有效期</th>
-                <th data-field="agentUserName">代理商</th>
-                <th data-field="adminUserName">销售</th>
-                <th data-field="remarks">备注</th>
-            </tr>
+                <tr>
+                    <th data-field="id">单号</th>
+                    <th data-field="serviceName">服务名称</th>
+                    <th data-field="userPassport">用户通行证</th>
+                    <th data-field="cost">销售价</th>
+                    <th data-field="profit">利润</th>
+                    <th data-field="salesDateTime" data-formatter="dateFomatter">销售日期</th>
+                    <th data-field="authExpiration" data-formatter="dateFomatter">有效期</th>
+                    <th data-field="agentUserName">代理商</th>
+                    <th data-field="adminUserName">销售</th>
+                    <th data-field="remarks">备注</th>
+                    <th data-field="orderState" data-formatter="operateFormatter"
+                        data-width="60px" data-events="operateEvents">操作</th>
+                </tr>
             </thead>
 
         </table>
@@ -112,12 +115,12 @@
 
 <script type="text/javascript">
     var $table = $('#table'),
-        $search = $('#search') ;
+        $search = $('#search');
 
     function queryParams(params) {
         $('#toolbar')
             .find('input[name]')
-            .each(function() {
+            .each(function () {
                 params[$(this).attr('name')] = $(this).val();
             });
         $('#toolbar')
@@ -125,12 +128,23 @@
             .each(function () {
                 params[$(this).attr('id')] = $(this).val();
             });
-        debugger;
         return params;
     }
 
-    function dateFomatter(value, row) {
+    function dateFomatter(value) {
         return new Date(value).pattern('yyyy-MM-dd hh:mm:ss');
+    }
+
+    function operateFormatter(value, row, index) {
+        if (value === 2) {
+            return [
+                '<a class="undo" href="javascript:void(0)" title="undo">',
+                '<i class="fa fa-undo"></i>',
+                '撤销',
+                '</a>'
+            ].join('');
+        }
+
     }
 
     function responseHandler(res) {
@@ -139,6 +153,56 @@
 
     function getHeight() {
         return $(window).height() - $('.title').outerHeight(true);
+    }
+
+    function rowStyle(row, index) {
+        var classes = ['active', 'success', 'info', 'warning', 'danger'];
+        if (row['orderState'] === 2) {
+            return {
+                classes: classes[2]
+            };
+        }
+        //if (row['orderState'] === 1) {
+        //    return {
+        //        classes: classes[2]
+        //    };
+        //}
+        if (row['orderState'] === 0) {
+            return {
+                classes: classes[4]
+            };
+        }
+        return {};
+    }
+
+    window.operateEvents = {
+        'click .undo': function (e, value, row, index) {
+            abp.message.confirm("您确定要撤销单号为" + row['id'] + "的订单吗?","撤销订单", function (isConfirmed) {
+                if (isConfirmed) {
+                    console.log(row['id']);
+                    $.ajax({
+                        url: '/api/SalesRecord/'+row['id'],
+                        type: 'PUT',
+                        contentType: "application/json; charset=utf-8",
+                        //data: { 'id': row["id"] },   /*注意路由匹配规则*/
+                        datatype: 'json',
+                        success: function (data) {
+                            debugger;
+                            if (data['code'] === 200) {
+                                abp.notify.success(data['data'], data['msg']);
+                                $table.bootstrapTable('refresh');
+                            } else {
+                                abp.notify.error("订单撤销失败,详情:" + data['Data'], data['msg']);
+                            }
+                        },
+                        error: function (xhr) {
+                            abp.notify.error("订单撤销失败，服务器内部错误,详情:" + xhr.responseText);
+                        }
+                    });
+
+                }
+            });
+        }
     }
 
     $(function () {
@@ -159,4 +223,3 @@
 
 </script>
 
- 

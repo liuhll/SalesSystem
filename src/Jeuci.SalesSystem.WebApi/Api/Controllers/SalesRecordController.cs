@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
-using Abp.Application.Services.Dto;
-using Jeuci.SalesSystem.Application.Dtos;
+using System.Web.ModelBinding;
 using Jeuci.SalesSystem.Data;
+using Jeuci.SalesSystem.Entities.Common;
 using Jeuci.SalesSystem.Sales;
 using Jeuci.SalesSystem.Sales.Dtos;
-using Newtonsoft.Json;
+
 
 namespace Jeuci.SalesSystem.Api.Controllers
 {
@@ -24,11 +20,20 @@ namespace Jeuci.SalesSystem.Api.Controllers
         }
 
         [HttpGet]
+        [Route("GetList")]
         public async Task<BootstrapTablePagedResult<SalesRecordOutput>> GetList([FromUri] SalesRecordSearchInput searchInput)
         {
             var recordList =await _saleSoftwareAppService.GetSalesServiceRecordPageList(searchInput);
             return recordList;
         }
 
+        [HttpPut]
+        [Route("UndoSalesOrder")]
+        public async Task<ResultMessage<string>> UndoSalesOrder(string id)
+        {
+            var result = await _saleSoftwareAppService.UndoSalesOrderById(id);
+
+            return result;
+        }
     }
 }

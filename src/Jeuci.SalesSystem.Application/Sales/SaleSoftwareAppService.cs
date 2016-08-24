@@ -76,20 +76,25 @@ namespace Jeuci.SalesSystem.Sales
 
         //public async Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit()
         //{
-        //    var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordPagedList();
+        //    var salesServiceRecordList =await _salesSoftwareProcessor.GetSalesServiceRecordList();
 
         //    return salesServiceRecordList.MapTo<ICollection<SalesRecordOutput>>();
         //}
 
         public async Task<BootstrapTablePagedResult<SalesRecordOutput>> GetSalesServiceRecordPageList(SalesRecordSearchInput searchInput)
         {
-            var salesServiceRecordList = await _salesSoftwareProcessor.GetSalesServiceRecordPagedList();
+            var salesServiceRecordList = await _salesSoftwareProcessor.GetSalesServiceRecordList();
             
             var salesRecordPolicy = new SalesRecordPolicy(salesServiceRecordList);
             var salesServiceRecordResult = salesRecordPolicy.SearchSalesServiceRecord(searchInput);
 
             return new BootstrapTablePagedResult<SalesRecordOutput>(salesServiceRecordResult.MapTo<IList<SalesRecordOutput>>(), 
                 searchInput.Offset, searchInput.Limit);
+        }
+
+        public async Task<ResultMessage<string>> UndoSalesOrderById(string id)
+        {
+           return await _salesSoftwareProcessor.UndoSalesOrderById(id);
         }
     }
 }

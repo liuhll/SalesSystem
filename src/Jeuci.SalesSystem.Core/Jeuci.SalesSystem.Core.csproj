@@ -95,6 +95,7 @@
     <Compile Include="Domain\Sales\ISalesSoftwareProcessor.cs" />
     <Compile Include="Domain\Sales\Models\SalesInfoModel.cs" />
     <Compile Include="Domain\Sales\Models\SalesRecordModel.cs" />
+    <Compile Include="Domain\Sales\Policy\UserServiceSubscriptionPolicy.cs" />
     <Compile Include="Domain\Users\Administrators\AdministratorManager.cs" />
     <Compile Include="Domain\Users\Administrators\IAdministratorManager.cs" />
     <Compile Include="Domain\Users\IUserManagerBase.cs" />

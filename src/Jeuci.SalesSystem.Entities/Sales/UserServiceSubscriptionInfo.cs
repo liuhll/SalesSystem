@@ -24,6 +24,8 @@ namespace Jeuci.SalesSystem.Entities
 
         public DateTime CreateTime { get; set; }
 
+        public DateTime? UpdateTime { get; set; }
+
         public DateTime? AuthExpiration { get; set; }
 
         public string Remarks { get; set; }

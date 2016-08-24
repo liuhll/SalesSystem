@@ -20,6 +20,7 @@ namespace Jeuci.SalesSystem.Sales
         //Task<ICollection<SalesRecordOutput>> GetSalesServiceRecordLsit();
 
         Task<BootstrapTablePagedResult<SalesRecordOutput>> GetSalesServiceRecordPageList(SalesRecordSearchInput searchInput);
+        Task<ResultMessage<string>> UndoSalesOrderById(string id);
     }
 }
 

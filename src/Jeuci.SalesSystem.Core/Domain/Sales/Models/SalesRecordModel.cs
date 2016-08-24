@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 
 namespace Jeuci.SalesSystem.Domain.Sales.Models
 {
@@ -35,5 +36,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Models
         public string AdminUserName { get; set; }
 
         public string Remarks { get; set; }
+
+        public OrderState OrderState { get; set; }
     }
 }

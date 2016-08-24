@@ -2,6 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Jeuci.SalesSystem.Domain.Sales.Models;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 
 namespace Jeuci.SalesSystem.Sales.Dtos
 {
@@ -31,6 +32,8 @@ namespace Jeuci.SalesSystem.Sales.Dtos
         public string AdminUserName { get; set; }
 
         public string Remarks { get; set; }
+
+        public OrderState OrderState { get; set; }
 
         public string UserPassport
         {

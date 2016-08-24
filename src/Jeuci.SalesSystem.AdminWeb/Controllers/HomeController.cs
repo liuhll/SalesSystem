@@ -25,12 +25,6 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
 
         public ActionResult Index()
         {
-            var test = _userInfoAppService.GetAll(new Application.Dtos.DefaultPagedResultRequest() { });
-            var test2 = _userInfoAppService.Get(new IdInput() { Id = 1035 });
-
-
-            var agentUsers = _agentInfoAppService.GetAll(new DefaultPagedResultRequest() {});
-
             return View();
         }
 	}
