@@ -13,5 +13,6 @@ namespace Jeuci.SalesSystem.Domain.Users
         where TUser : UserBase 
     {
         Task<UserManagerBase<TUser>.LoginResult> LoginAsync(string username, string password);
+      
     }
 }

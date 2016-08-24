@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\IUserManagementConfig .cs" />
+    <Compile Include="Configuration\JueciAuthenticationTypes.cs" />
     <Compile Include="Configuration\UserManagementConfig.cs" />
     <Compile Include="Data\BootstrapTablePagedResult.cs" />
     <Compile Include="Domain\Sales\Impl\BrandInfoManager.cs" />
@@ -98,18 +99,27 @@
     <Compile Include="Domain\Sales\Policy\UserServiceSubscriptionPolicy.cs" />
     <Compile Include="Domain\Users\Administrators\AdministratorManager.cs" />
     <Compile Include="Domain\Users\Administrators\IAdministratorManager.cs" />
+    <Compile Include="Domain\Users\Agents\AgentManager.cs" />
+    <Compile Include="Domain\Users\Agents\IAgentManager.cs" />
+    <Compile Include="Domain\Users\Authorization\JeuciAuthorizationProvider.cs" />
+    <Compile Include="Domain\Users\Authorization\PermissionNames.cs" />
+    <Compile Include="Domain\Users\Authorization\UserPermissionCacheItem.cs" />
     <Compile Include="Domain\Users\IUserManagerBase.cs" />
     <Compile Include="Domain\Users\UserManagerBase.cs" />
     <Compile Include="Domain\Users\UserStore\IAdministratorUserStore.cs" />
+    <Compile Include="Domain\Users\UserStore\IAgentUserStore.cs" />
     <Compile Include="Domain\Users\UserStore\IJueciUserStoreBase.cs" />
     <Compile Include="Domain\Users\UserStore\impl\AdministratorUserStore.cs" />
+    <Compile Include="Domain\Users\UserStore\impl\AgentUserStore.cs" />
     <Compile Include="Events\EventData\AdminLoginsEventData.cs" />
+    <Compile Include="Events\EventData\AgentLoginsEventData.cs" />
     <Compile Include="Events\EventData\CurrentUserEventData.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAdminEventHandler.cs" />
     <Compile Include="Events\EventHandler\AssertUserIsAgentorEventHandler.cs" />
     <Compile Include="Events\EventHandler\BrandServiceInfoMapEventHandler.cs" />
     <Compile Include="Events\EventHandler\CurrentUserEventHandler.cs" />
     <Compile Include="Events\EventHandler\RecordAdminLoginsEventHandler.cs" />
+    <Compile Include="Events\EventHandler\RecordAgentLoginsEventHandler.cs" />
     <Compile Include="Events\EventHandler\ServiceInfoServicePriceMapEventHandler.cs" />
     <Compile Include="Helper\DateTimeHelper.cs" />
     <Compile Include="Helper\Hash256Helper.cs" />
@@ -135,9 +145,7 @@
       <Name>Jeuci.SalesSystem.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Users\Agents\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

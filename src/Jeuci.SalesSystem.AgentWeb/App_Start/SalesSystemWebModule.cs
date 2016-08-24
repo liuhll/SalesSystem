@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -49,6 +50,10 @@ namespace Jeuci.SalesSystem.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // WebApi Config
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            //Filter config default Authorize
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

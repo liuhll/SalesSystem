@@ -19,5 +19,23 @@
     <text name="NavBar_Sidebar_Content" value="目录" />
     <text name="NavBar_SaleSoftware" value="销售软件"/>
     <text name="NavBar_SaleSoftwareRecord" value="销售记录"/>
+
+
+    <!--Title-->
+    <text name="SalesAgentTitle" value="代理商销售系统" />
+
+    <!--TopMenu-->
+    <text name="UserProfile" value="用户信息" />
+    <text name="Settings" value="设置" />
+    <text name="Logout" value="登出" />
+
+    <!--Message Tips-->
+    <text name="LoginFailed" value="登录失败" />
+    <text name="UserIsNotActive" value="该用户未激活，无法登录" />
+    <text name="InvalidUserName" value="用户名：{0}无效，请核对账号" />
+    <text name="InvalidPassword" value="密码不正确，请核对密码" />
+    <text name="LoginFailedOther" value="未知错误，请与我们联系..." />
+    <text name="NotAgentUser" value="您不是代理商用户，无法登录该系统，想要成为代理商，请与我们联系！" />
+    
   </texts>
 </localizationDictionary>

@@ -57,6 +57,7 @@ namespace Jeuci.SalesSystem.EntityFramework
             modelBuilder.Configurations.Add(new ServicePriceMap());
             modelBuilder.Configurations.Add(new UserServiceSubscriptionInfoMap());
             modelBuilder.Configurations.Add(new UserServiceAuthInfoMap());
+            modelBuilder.Configurations.Add(new AgentLoginHistoryMap());
 
         }
 
@@ -82,6 +83,8 @@ namespace Jeuci.SalesSystem.EntityFramework
         public virtual IDbSet<UserServiceSubscriptionInfo> UserServiceSubscriptionInfos { get; set; }
 
         public virtual IDbSet<UserServiceAuthInfo> UserServiceAuthInfos { get; set; }
+
+        public virtual IDbSet<AgentLoginHistory> AgentLoginHistories { get; set; }
 
         #endregion
     }

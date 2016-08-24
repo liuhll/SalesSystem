@@ -122,6 +122,7 @@
     <Compile Include="Mapping\ProductMapping\BrandInfoMap.cs" />
     <Compile Include="Mapping\ProductMapping\ServiceInfoMap.cs" />
     <Compile Include="Mapping\ProductMapping\ServicePriceMap.cs" />
+    <Compile Include="Mapping\UserMapping\AgentLoginHistoryMap.cs" />
     <Compile Include="Mapping\UserMapping\UserInfoMap.cs" />
     <Compile Include="Migrations\201608040150548_InitialCreate.cs" />
     <Compile Include="Migrations\201608040150548_InitialCreate.Designer.cs">

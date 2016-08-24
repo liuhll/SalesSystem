@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Abp.Owin;
+using Jeuci.SalesSystem.Configuration;
 using Jeuci.SalesSystem.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
@@ -21,12 +22,12 @@ namespace Jeuci.SalesSystem.Web
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                AuthenticationType = JueciAuthenticationTypes.ApplicationAgentCookie,
                 LoginPath = new PathString("/Account/Login")
             });
 
             // Use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            app.UseExternalSignInCookie(JueciAuthenticationTypes.ExternalAgentCookie);
         }
     }
 }

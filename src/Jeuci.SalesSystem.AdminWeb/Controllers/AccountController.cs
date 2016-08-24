@@ -23,8 +23,6 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
     {
         private readonly IAdministratorManager _userManager;
 
-        private readonly IRepository<AgentInfo> _repository;
-
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -33,11 +31,9 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
             }
         }
 
-        public AccountController(AdministratorManager userManager, IRepository<AgentInfo> repository)
+        public AccountController(AdministratorManager userManager)
         {
             _userManager = userManager;
-            _repository = repository;
-            //  _userManager = userManager;
         }
 
         // GET: Account/Login?returnUrl="returnUrl"
@@ -60,8 +56,7 @@ namespace Jeuci.SalesSystem.AdminWeb.Controllers
         public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "")
         {
             CheckModelState();
-
-            
+           
             var loginResult = await _userManager.LoginAsync(loginModel.Username,loginModel.Password);
             switch (loginResult.Result)
             {

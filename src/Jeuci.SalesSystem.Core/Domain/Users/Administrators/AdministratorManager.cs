@@ -1,5 +1,6 @@
 ﻿using Jeuci.SalesSystem.Domain.Users.UserStore;
 using Jeuci.SalesSystem.Entities;
+using Jeuci.SalesSystem.Entities.Common.Enums;
 using Jeuci.SalesSystem.Repositories.Interface;
 
 namespace Jeuci.SalesSystem.Domain.Users.Administrators
@@ -12,7 +13,7 @@ namespace Jeuci.SalesSystem.Domain.Users.Administrators
        
 
         public AdministratorManager(IAdministratorInfoRepository userRepository, IAdministratorUserStore adminUserStore)
-            : base(userRepository, adminUserStore)
+            : base(userRepository, adminUserStore,UserRole.Admin)
         {
             _administratorInfoRepository = userRepository;
             _adminUserStore = adminUserStore;

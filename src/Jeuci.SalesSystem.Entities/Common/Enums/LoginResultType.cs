@@ -14,5 +14,6 @@ namespace Jeuci.SalesSystem.Entities.Common.Enums
         UserIsNotActive = 4,
         UserEmailIsNotConfirmed = 5,
         UnknownExternalLogin = 6,
+        NotAgentUser = 7,
     }
 }

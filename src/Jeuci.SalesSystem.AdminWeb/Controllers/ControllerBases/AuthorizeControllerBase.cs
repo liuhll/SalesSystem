@@ -1,10 +1,11 @@
 ﻿using Abp.Web.Mvc.Authorization;
+using Jeuci.SalesSystem.Domain.Users.Authorization;
 using Jeuci.SalesSystem.Entities;
 using Jeuci.SalesSystem.Events.EventData;
 
 namespace Jeuci.SalesSystem.AdminWeb.Controllers.ControllerBases
 {
-    [AbpMvcAuthorize]
+    [AbpMvcAuthorize(PermissionNames.Pages_Admin)]
     public class AuthorizeControllerBase : SalesSystemControllerBase
     {
 
