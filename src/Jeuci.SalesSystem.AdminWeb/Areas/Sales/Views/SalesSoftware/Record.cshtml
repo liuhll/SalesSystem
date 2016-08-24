@@ -19,7 +19,7 @@
     <script src="~/Abp/Lib/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="~/Abp/Lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="~/Abp/Lib/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
-    <script src="~/Scripts/others/date-format.js"></script>
+    <script src="~/Scripts/others/data-format.js"></script>
 
 }
 <div class="row">
@@ -97,8 +97,8 @@
                     <th data-field="id">单号</th>
                     <th data-field="serviceName">服务名称</th>
                     <th data-field="userPassport">用户通行证</th>
-                    <th data-field="cost">销售价</th>
-                    <th data-field="profit">利润</th>
+                    <th data-field="cost" data-formatter="moneyFomatter">销售价</th>
+                    <th data-field="profit" data-formatter="moneyFomatter">利润</th>
                     <th data-field="salesDateTime" data-formatter="dateFomatter">销售日期</th>
                     <th data-field="authExpiration" data-formatter="dateFomatter">有效期</th>
                     <th data-field="agentUserName">代理商</th>
@@ -133,6 +133,10 @@
 
     function dateFomatter(value) {
         return new Date(value).pattern('yyyy-MM-dd hh:mm:ss');
+    }
+
+    function moneyFomatter(value) {
+        return value.formatMoney(2, " ¥", ".", ",")
     }
 
     function operateFormatter(value, row, index) {
