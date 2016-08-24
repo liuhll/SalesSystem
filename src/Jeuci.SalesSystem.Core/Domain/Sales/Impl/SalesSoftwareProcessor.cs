@@ -171,7 +171,7 @@ namespace Jeuci.SalesSystem.Domain.Sales.Impl
                 BrandId = a.ServiceInfo.BrandId,
                 ServerInfoId = a.ServiceInfo.Id,
                 OrderState = a.State,
-            }).ToList();
+            }).OrderByDescending(p=>p.SalesDateTime).ToList();
         }
 
         public async Task<ResultMessage<string>> UndoSalesOrderById(string id)
